@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/2018/03/23/test/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[IPython 安装后打开报错ImportError]]></title>
+      <url>http://yoursite.com/2017/03/21/ipython_install/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>IPython安装后打开时提示，ImportError: No module named shutil_get_terminal_size</excerpt></p>
+<p>环境声明</p>
+<ul>
+<li>OS：ubuntu 14.04</li>
+<li>Python: Python 2.7.5</li>
+<li>IPython: IPython 5.2.2</li>
+</ul>
+<p>都是使用apt安装的，安装过程中并没有报错，但是当运行IPython时出现了错误<a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@asaxfsa home]# ipython</div><div class="line">Traceback (most recent call last):</div><div class="line">  ......</div><div class="line">  File &quot;/usr/lib/python2.7/site-packages/IPython/utils/terminal.py&quot;, line 22, in &lt;module&gt;</div><div class="line">    from backports.shutil_get_terminal_size import get_terminal_size as _get_terminal_size</div><div class="line">ImportError: No module named shutil_get_terminal_size</div></pre></td></tr></table></figure></p>
+<p>Google了以下，发现Ipython的github上确实有这个issues,<br><a href="https://github.com/ipython/ipython/issues/9815" target="_blank" rel="external">Issues 9815</a>和<a href="https://github.com/ipython/ipython/issues/9656" target="_blank" rel="external">Issues9656</a>, 大家可以自己先看看里面给的解决方案是否可行。</p>
+<p>里面的解决方案大致解决分为两种<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">方案一：</div><div class="line"># 升级pip版本</div><div class="line">pip install --upgrade setuptools pip</div><div class="line"># 卸载掉所有系统内的ipython和python-backports-shutil-get-terminal-size</div><div class="line">apt-get uninstall ipython python-backports-shutil-get-terminal-size</div><div class="line"># 再卸载pip安装的ipython，jupyter，backports.shutil_get_terminal_size</div><div class="line">pip uninstall ipython jupyter backports.shutil_get_terminal_size</div><div class="line"># 安装新的ipython</div><div class="line">pip install ipython jupyter</div><div class="line"></div><div class="line">方案二：</div><div class="line"># 安装指定版本的ipython，以逃避这个错误，逃～：）</div><div class="line">pip install --user --upgrade ipython==4.2</div></pre></td></tr></table></figure></p>
+<p>然而我感觉都太麻烦。。。。<br>这里时我自己的解决方案<br>方案三：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 打开上面报错的文件</div><div class="line">$vim /usr/lib/python2.7/site-packages/IPython/utils/terminal.py</div><div class="line">try:</div><div class="line">    from shutil import get_terminal_size as _get_terminal_size</div><div class="line">except ImportError:</div><div class="line">    # use backport on Python 2</div><div class="line">    from backports.shutil_get_terminal_size import get_terminal_size as _get_terminal_size</div></pre></td></tr></table></figure>
+<p>可以看到ipython试图导入时的代码可能没有考虑的很周全，那么既然我们知道自己的python版本了……<br>直接的注释了代码，改成了以下代码并保存，就可以愉快的运行了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">try:</div><div class="line">    from shutil import get_terminal_size as _get_terminal_size</div><div class="line">except ImportError:</div><div class="line">    # use backport on Python 2</div><div class="line">    # from backports.shutil_get_terminal_size import get_terminal_size as _get_terminal_size</div><div class="line">    from shutil_backports import get_terminal_size as _get_terminal_size</div></pre></td></tr></table></figure></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=28561288&auto=1&height=66"></iframe>
+
+<p><div id="google_translate_element"></div><script type="text/javascript"><br>function googleTranslateElementInit() {<br>  new google.translate.TranslateElement({pageLanguage: ‘zh-CN’, layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, ‘google_translate_element’);<br>}<br></script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> ipython </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Python 相对导入Bugs]]></title>
+      <url>http://yoursite.com/2017/03/20/Python_import/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>很惭愧学习python一年多了，遇到import相对导入引发的<em>ValueError: Attempted relative import in non-package</em>报错居然一下子蒙住了。<br>特此整理了一下：<br>首先约定以下一个简单的例子目录结构如下。<br>（由于要实验相对导入，因此要保证拥有<code>t/__init__.py</code>）<a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ tree test</div><div class="line">test</div><div class="line">├── a.py</div><div class="line">├── __init__.py</div><div class="line">└── t.py</div></pre></td></tr></table></figure></excerpt></p>
+<h2 id="错误：-ValueError-Attempted-relative-import-in-non-package"><a href="#错误：-ValueError-Attempted-relative-import-in-non-package" class="headerlink" title="错误： ValueError: Attempted relative import in non-package"></a>错误： ValueError: Attempted relative import in non-package</h2><h3 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h3><p>首先我们来看下两个文件内的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/home/test/a.py</div><div class="line">def test():</div><div class="line">    print(&quot;Hi&quot;)</div><div class="line"></div><div class="line">/home/test/t.py</div><div class="line">from . import a</div><div class="line">a.test()</div></pre></td></tr></table></figure></p>
+<p>内容很简单，打印一个Hi。我们执行<code>python test/t.py</code>则会引发Attempted relative import in non-package的error。<br>这个error引发的原因很简单，我们直接执行的t.py文件，此时导入的top level是./t/t.py所在的文件，即解释器将<code>/home/test</code>路径添加到了sys.path内,不理解的可以将以下语句加入到t.py内执行几次。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import sys</div><div class="line">print(sys.path)</div></pre></td></tr></table></figure></p>
+<p>那么现在我们确定这样导入会导致python将<code>/home/test</code>目录作为了top level，那么下面来解释为什么会引发这个error，首先相对导入from . import a这里的”.”指代test,但是在<code>/home/test</code>目录作为了top level的检索里面无法再导入上层，所以引发了error。</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>方法一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 仅当运行本文件，并没有给定__package__时，将文件上级目录添加到sys.path中</div><div class="line">if __name__ == &apos;__main__&apos; and __package__ is None:</div><div class="line">    from os import sys, path</div><div class="line">    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))</div><div class="line">    from . import a</div><div class="line">    a.test()</div></pre></td></tr></table></figure></p>
+<p>方法二：<br>使用-m 参数告诉 Python 解释器，把这个文件当作一个 module 载入，而不是 top-level 脚本。<code>python -m test/t.py</code></p>
+<p>相关链接：<br><a href="https://www.python.org/dev/peps/pep-0366/" target="_blank" rel="external">https://www.python.org/dev/peps/pep-0366/</a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=18094989&auto=1&height=66"></iframe>
+
+
+<the rest="" of="" contents="" |="" 余下全文="">
+
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> import </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[NSIS打包C# 程序]]></title>
+      <url>http://yoursite.com/2017/03/16/NSIS/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>NSIS是一个Nullsoft脚本安装系统（英语：Nullsoft Scriptable Install System，缩写：NSIS）为一个开放源代码脚本驱动的封装安装档用工具。可以用其脚本语言自定安装的流程，同时支持多种语系的安装接口。</excerpt></p>
+<h2 id="安装NSIS"><a href="#安装NSIS" class="headerlink" title="安装NSIS"></a>安装NSIS</h2><p>有些人建议安装Unicode NSIS，NSIS3.0.1版本已经兼容了unicode，除非是老版本的，可以考虑安装Unicode NSIS。<br><a href="http://nsis.sourceforge.net/Download" target="_blank" rel="external">NSIS下载地址</a><br>下载安装完成后，可以在桌面看到一个NSIS的图标，先别急着打开它，现在我们还用不上它。<a id="more"></a></p>
+<p>##安装插件<br>安装一些常用插件（以下插件均为按需安装，如果不需要也可以选择不安装）</p>
+<ul>
+<li>AccessControl.dll : 它提供了一组与Windows NT访问控制列表（ACL）管理相关的功能，相当于设定目录权限的功能。 <a href="http://nsis.sourceforge.net/AccessControl_plug-in" target="_blank" rel="external">下载地址</a></li>
+<li>KillProcDLL.dll：关闭指定名称的exe,用于卸载时关闭进程。<a href="http://nsis.sourceforge.net/KillProcDLL_plug-in" target="_blank" rel="external">下载地址</a></li>
+<li>liteFirewall.dll： 关闭防火墙<a href="https://leons.im/portfolio/nsis-plugin-litefirewall/" target="_blank" rel="external">下载地址</a></li>
+<li>UAC.dll，UAC.nsh <a href="http://nsis.sourceforge.net/UAC_plug-in" target="_blank" rel="external">下载地址</a><br>以上插件下载解压后，将dll文件复制到C:\Program Files (x86)\NSIS\Plugins内，nsh文件复制到C:\Program Files (x86)\NSIS\Include内。</li>
+</ul>
+<p>##添加NSIS配置<br>下载一个<a href="http://goo.gl/Akbips" target="_blank" rel="external">Exmaple</a>这个例子源自<a href="http://seesawworld.blogspot.sg/2016/02/1-nsis.html，在此鸣谢原作者。" target="_blank" rel="external">http://seesawworld.blogspot.sg/2016/02/1-nsis.html，在此鸣谢原作者。</a><br>这里主要逻辑在Exmaple.nsi内，其他都是一些资源文件，简单修改一下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">; !define 用于声明一个常量</div><div class="line">!define PRODUCT_NAME &quot;YuanJin&quot; 产品名称</div><div class="line">!define PRODUCT_VERSION &quot;1.0&quot; 版本号</div><div class="line">!define PRODUCT_PUBLISHER &quot;YuanJin&quot; 发布者</div><div class="line">!define PRODUCT_WEB_SITE &quot;http://www.yuanjin.io/&quot; 产品官网，这将在安装完成后显示在开始程序栏内的快捷键</div><div class="line"></div><div class="line">!define PRODUCT_STARTUP_APP &quot;YuanJin.exe&quot; 注意更改这个，这个就是你需要打包的exe文件，程序安装完成时将自动执行</div><div class="line"></div><div class="line">; 主要讲一下依赖，个别程序会需要第三方依赖，我是将第三方依赖加入到DIR_TO_INSTALL中，如下配置</div><div class="line">Section &quot;ExampleSection01&quot; SEC01</div><div class="line">  CreateDirectory &quot;$SMPROGRAMS\$&#123;PRODUCT_NAME&#125;&quot; </div><div class="line">  SetOutPath $INSTDIR</div><div class="line">  SetOverwrite try</div><div class="line">  File &quot;..\Example\DIR_TO_INSTALL\JsonFx.dll&quot;</div><div class="line">  File &quot;..\Example\DIR_TO_INSTALL\JsonFx.xml&quot;</div><div class="line">  File &quot;..\Example\DIR_TO_INSTALL\Newtonsoft.Json.dll&quot;</div><div class="line">  File &quot;..\Example\DIR_TO_INSTALL\Newtonsoft.Json.xml&quot;</div><div class="line">  File &quot;..\Example\DIR_TO_INSTALL\YuanJin.exe.config&quot;</div><div class="line">  File &quot;..\Example\DIR_TO_INSTALL\YuanJin.pdb&quot;</div><div class="line">  File &quot;favico.ico&quot;</div><div class="line">  CreateShortCut &quot;$SMPROGRAMS\$&#123;PRODUCT_NAME&#125;\$(ShortCutUninstall)&quot;  &quot;$INSTDIR\uninst2.exe&quot; &quot;&quot; &quot;$INSTDIR\$&#123;APPLICATION_ICON&#125;&quot; 0</div><div class="line">SectionEnd</div></pre></td></tr></table></figure></p>
+<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><p>现在我们回到桌面，打开NSIS程序，你会看到一个很精致小巧的界面，没错不要怀疑：），雾~<br>点击Complier  NSI scripts —-&gt; load script —-&gt;找到刚刚编辑的Exmaple.nsi双击，如果一切正常你将会看到<code>Test Installer</code>可以被点击了。你会在Exmaple/output中看到打包好的exe了。</p>
+<p><a href="http://omega.idv.tw/nsis/Contents.html" target="_blank" rel="external">NSIS中文文档</a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=316654&auto=1&height=66"></iframe>
+
+<p><the rest="" of="" contents="" |="" 余下全文=""><br>//TODO smartscreen 会弹出蓝框显示不信任的程序，尚需解决。</the></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> NSIS </tag>
+            
+            <tag> C# </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Git Relese自动加载Assets]]></title>
+      <url>http://yoursite.com/2017/03/08/gitrelese/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br><a href="https://developer.github.com/v3/repos/releases/#create-a-release" target="_blank" rel="external">Git Relese</a>自动加载Assets</excerpt></p>
+<h3 id="建立tag"><a href="#建立tag" class="headerlink" title="建立tag"></a>建立tag</h3><p>获取HEAD，可以预览<code>git log --pretty=oneline</code>以获取HEAD，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a3f13d0f2cc3168e3cdf6ac4ced4bd5231dd4f70 change prot</div><div class="line">a9b243d3498a5c76e02014b0bf3e5f2bac38adb2 add device</div><div class="line">4923890b31bbbe0616251f8374962c9f4ac10351 add available for user</div></pre></td></tr></table></figure></p>
+<p>现在为add available for user建立一个名为v0.1的tag<a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag -a v0.1 -m &quot;my version test&quot; 4923890b </div><div class="line">git push origin v0.1</div></pre></td></tr></table></figure>
+<h3 id="Releases"><a href="#Releases" class="headerlink" title="Releases"></a>Releases</h3><p>通过api，releases版本v0.1，<br>owner即所有者的用户名<br>repo为项目名称<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X POST -H &quot;Authorization: Basic XXXXXXX&quot; https://api.github.com/repos/:owner/:repo/releases -d &#123;&quot;tag_name&quot;: &quot;v0.1&quot;&#125;</div></pre></td></tr></table></figure></p>
+<p>将返回json代码，记录下json中的upload_url。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;url&quot;: &quot;https://api.github.com/repos/nevermoreluo/YuanJin/releases/1&quot;,</div><div class="line">  &quot;assets_url&quot;: &quot;https://api.github.com/repos/nevermoreluo/YuanJin/releases/1/assets&quot;,</div><div class="line">  &quot;upload_url&quot;: &quot;https://uploads.github.com/repos/nevermoreluo/YuanJin/releases/1/assets&#123;?name,label&#125;&quot;,</div><div class="line">  &quot;html_url&quot;: &quot;https://github.com/nevermoreluo/YuanJin/releases/tag/v0.1&quot;,</div><div class="line">  &quot;id&quot;: 1,</div><div class="line">  &quot;tag_name&quot;: &quot;v0.1&quot;,</div><div class="line">  &quot;target_commitish&quot;: &quot;master&quot;,</div><div class="line">  &quot;name&quot;: null,</div><div class="line">  &quot;draft&quot;: false,</div><div class="line">  &quot;author&quot;: &#123;</div><div class="line">    &quot;login&quot;: &quot;nevermoreluo&quot;,</div><div class="line">    &quot;id&quot;: 16,</div><div class="line">    &quot;avatar_url&quot;: &quot;https://avatars3.githubusercontent.com/u/16?v=3&quot;,</div><div class="line">    &quot;gravatar_id&quot;: &quot;&quot;,</div><div class="line">    &quot;url&quot;: &quot;https://api.github.com/users/nevermoreluo&quot;,</div><div class="line">    &quot;html_url&quot;: &quot;https://github.com/nevermoreluo&quot;,</div><div class="line">    &quot;followers_url&quot;: &quot;https://api.github.com/users/nevermoreluo/followers&quot;,</div><div class="line">    &quot;following_url&quot;: &quot;https://api.github.com/users/nevermoreluo/following&#123;/other_user&#125;&quot;,</div><div class="line">    &quot;gists_url&quot;: &quot;https://api.github.com/users/nevermoreluo/gists&#123;/gist_id&#125;&quot;,</div><div class="line">    &quot;starred_url&quot;: &quot;https://api.github.com/users/nevermoreluo/starred&#123;/owner&#125;&#123;/repo&#125;&quot;,</div><div class="line">    &quot;subscriptions_url&quot;: &quot;https://api.github.com/users/nevermoreluo/subscriptions&quot;,</div><div class="line">    &quot;organizations_url&quot;: &quot;https://api.github.com/users/nevermoreluo/orgs&quot;,</div><div class="line">    &quot;repos_url&quot;: &quot;https://api.github.com/users/nevermoreluo/repos&quot;,</div><div class="line">    &quot;events_url&quot;: &quot;https://api.github.com/users/nevermoreluo/events&#123;/privacy&#125;&quot;,</div><div class="line">    &quot;received_events_url&quot;: &quot;https://api.github.com/users/nevermoreluo/received_events&quot;,</div><div class="line">    &quot;type&quot;: &quot;User&quot;,</div><div class="line">    &quot;site_admin&quot;: false</div><div class="line">  &#125;,</div><div class="line">  &quot;prerelease&quot;: false,</div><div class="line">  &quot;created_at&quot;: &quot;2017-03-08T08:14:58Z&quot;,</div><div class="line">  &quot;published_at&quot;: &quot;2017-03-08T10:27:45Z&quot;,</div><div class="line">  &quot;assets&quot;: [</div><div class="line"></div><div class="line">  ],</div><div class="line">  &quot;tarball_url&quot;: &quot;https://api.github.com/repos/nevermoreluo/YuanJin/tarball/v0.1&quot;,</div><div class="line">  &quot;zipball_url&quot;: &quot;https://api.github.com/repos/nevermoreluo/YuanJin/zipball/v0.1&quot;,</div><div class="line">  &quot;body&quot;: null</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="添加assets"><a href="#添加assets" class="headerlink" title="添加assets"></a>添加assets</h3><p>以下是一个curl的例子，根据之前返回的upload_url, 假设要添加的assets为appcast.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X POST -H &quot;Authorization: Basic XXXXXX&quot; -H &quot;Content-Type: application/atom+xml&quot; --data-binary @appcast.xml https://uploads.github.com/repos/nevermoreluo/YuanJin/releases/&lt;id&gt;/assets?name=appcast.xml</div></pre></td></tr></table></figure></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=1934649&auto=1&height=66"></iframe>
+
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Django Celery]]></title>
+      <url>http://yoursite.com/2017/03/07/DjangoCelery/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>Django Celery, django celery 配置简介</excerpt></p>
+<h3 id="1-安装celery"><a href="#1-安装celery" class="headerlink" title="1.安装celery"></a>1.安装celery</h3><p>celerys要一个数据库作为后台存储任务和结果,选择Redis作为数据库存储<a id="more"></a></p>
+<p> 先下载安装Redis-server<br> 之后需要安装第三方库<br><code>pip install celery 
+pip install redis</code>这两者都有相对应的django支持包例如django-redis和django-celery</p>
+<h3 id="2-配置celery"><a href="#2-配置celery" class="headerlink" title="2.配置celery"></a>2.配置celery</h3><p>首先创建一个celery.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">proj/celery.py</div><div class="line"></div><div class="line"># _*_ coding:utf-8 _*_</div><div class="line"># !/usr/bin/env python</div><div class="line"># auth: nevermore</div><div class="line"># 注意在py2中添加absolute_import否则无法正常启动celery会出现Importerror</div><div class="line">from __future__ import absolute_import</div><div class="line">import os</div><div class="line"></div><div class="line">from celery import Celery</div><div class="line"></div><div class="line"># set the default Django settings module for the &apos;celery&apos; program.</div><div class="line">os.environ.setdefault(&apos;DJANGO_SETTINGS_MODULE&apos;, &apos;elina.settings&apos;)</div><div class="line"></div><div class="line">from django.conf import settings</div><div class="line"></div><div class="line"># fix error AppRegistryNotReady</div><div class="line"># http://stackoverflow.com/questions/25537905/django-1-7-throws-django-core-exceptions-appregistrynotready-models-arent-load</div><div class="line">import django</div><div class="line">django.setup()</div><div class="line"></div><div class="line">app = Celery(&apos;elina&apos;)</div><div class="line"></div><div class="line"># Using a string here means the worker will not have to</div><div class="line"># pickle the object when using Windows.</div><div class="line">app.config_from_object(&apos;django.conf:settings&apos;)</div><div class="line">app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)</div></pre></td></tr></table></figure>
+<p>配置django的settings</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">proj/settings.py</div><div class="line"></div><div class="line"># 注意在py2中添加absolute_import否则无法正常启动celery会出现Importerror</div><div class="line">from __future__ import absolute_import</div><div class="line">from celery.schedules import crontab</div><div class="line"></div><div class="line"># Celery</div><div class="line">BROKER_URL = redis://localhost:6379/0</div><div class="line">CELERY_RESULT_BACKEND = redis://localhost/0</div><div class="line"></div><div class="line"># 管理celery定时任务</div><div class="line">CELERYBEAT_SCHEDULE = &#123;</div><div class="line">    &apos;node-every-5min-info&apos;: &#123;</div><div class="line">        &apos;task&apos;: &apos;elina.tasks.nodes_info&apos;,</div><div class="line">        &apos;schedule&apos;: crontab(minute=&apos;*/5&apos;),</div><div class="line">        &apos;args&apos;: ()</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>建立tasks.py管理任务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">proj/tasks.py</div><div class="line"></div><div class="line"># _*_ coding:utf-8 _*_</div><div class="line"># !/usr/bin/env python</div><div class="line"># auth: nevermore</div><div class="line">from proj.celery import app</div><div class="line"></div><div class="line"></div><div class="line">@app.task</div><div class="line">def nodes_info():</div><div class="line">    return do_sth</div></pre></td></tr></table></figure>
+<h3 id="3-在supervior中启动celery"><a href="#3-在supervior中启动celery" class="headerlink" title="3. 在supervior中启动celery"></a>3. 在supervior中启动celery</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[program:celery]</div><div class="line">;环境变量可加可不加</div><div class="line">environment=MC_ELINA=&quot;nevermore&quot;,PYTHONPATH=&quot;/home/never/Envs/proj/proj&quot;,C_FORCE_ROOT=&quot;true&quot;</div><div class="line">command=/home/never/Envs/proj/bin/celery -A proj.tasks worker -l info --workdir=/home/never/Envs/proj/%(program_name)s -B</div><div class="line">; 注意定时任务需要加入-B参数否则无法启用任务</div><div class="line">process_name = %(program_name)s_%(process_num)02d</div><div class="line">;numprocs设置为1,如果设置为2所有任务都将再重复一次</div><div class="line">numprocs=1</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">redirect_stderr=true</div><div class="line">stdout_logfile=/var/log/proj/%(program_name)s.log</div><div class="line">user=root</div></pre></td></tr></table></figure>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=3986040&auto=1&height=66"></iframe>
+
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> django </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Django Rest Framework]]></title>
+      <url>http://yoursite.com/2017/03/07/DjangoRestFramework/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br><a href="http://www.django-rest-framework.org/tutorial/quickstart/" target="_blank" rel="external">Django Rest Framework</a><br>django 第三方库对models实现restful规范的response管理<br>安装<code>pip install djangorestframework</code><br>settings.py配置<a id="more"></a></excerpt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = (</div><div class="line">    ...</div><div class="line">    &apos;rest_framework&apos;,</div><div class="line">)</div><div class="line"></div><div class="line"># djangorestframework</div><div class="line">REST_FRAMEWORK = &#123;</div><div class="line">    # 是否需要权限登陆验证</div><div class="line">    &apos;DEFAULT_AUTHENTICATION_CLASSES&apos;: [],</div><div class="line">    &apos;DEFAULT_PERMISSION_CLASSES&apos;: [],</div><div class="line">    # &apos;DEFAULT_PERMISSION_CLASSES&apos;: (&apos;rest_framework.permissions.IsAdminUser&apos;,),</div><div class="line">    # 设置每页modelsList返回个数</div><div class="line">    &apos;PAGE_SIZE&apos;: 100,</div><div class="line">    # 设置失败请求的自定义返回内容</div><div class="line">    &apos;EXCEPTION_HANDLER&apos;: &apos;antique.utils.custom_exception_handler&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>urls.py配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">from django.conf.urls import url, include</div><div class="line">from rest_framework import routers</div><div class="line">router = routers.DefaultRouter()</div><div class="line">urlpatterns = [</div><div class="line">    url(r&apos;^&apos;, include(router.urls)),</div><div class="line">    ......</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>serializer.py序列化models</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">from django.contrib.auth.models import User</div><div class="line">from rest_framework import serializers</div><div class="line"></div><div class="line"># Serializers define the API representation.</div><div class="line">class UserSerializer(serializers.HyperlinkedModelSerializer):</div><div class="line">    class Meta:</div><div class="line">        model = User</div><div class="line">        fields = (&apos;url&apos;, &apos;username&apos;, &apos;email&apos;, &apos;is_staff&apos;)</div></pre></td></tr></table></figure>
+<p>views.py 这里可以选择由简洁的ModelViewSet来生成此外还可以自定义一些方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from rest_framework import viewsets</div><div class="line"># ViewSets define the view behavior.</div><div class="line">class UserViewSet(viewsets.ModelViewSet):</div><div class="line">    queryset = User.objects.all()</div><div class="line">    serializer_class = UserSerializer</div></pre></td></tr></table></figure></p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=405343998&auto=1&height=66"></iframe></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> django </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Django Cache 缓存]]></title>
+      <url>http://yoursite.com/2017/03/07/DjangoCache/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>Django cache 缓存, 使用memcache来管理缓存系统memcache天生支持集群化cache管理与reids类似的kv键值对存储方法但没有批量匹配删除k的方法<br>Memcached的守护进程daemon 是用C写的但是客户端可以用任何语言来编写并通过 memcached协议与守护进程通信<a id="more"></a></excerpt></p>
+<h4 id="1-下载memcache"><a href="#1-下载memcache" class="headerlink" title="1.下载memcache"></a>1.下载memcache</h4><p>首先我们需要下载memcache的client<code>sudo apt-get install libmemcached-dev</code>,<code>sudo apt-get memcached</code> 下载memcache的第三方py库pylibmc或者python-memcached我们选用<a href="http://www.iteye.com/topic/341763" target="_blank" rel="external">pylibmc</a></p>
+<h4 id="2-启动memcached"><a href="#2-启动memcached" class="headerlink" title="2.启动memcached"></a>2.启动memcached</h4><p>命令示例<br><code>memcached -d -m 64 -u root -l 127.0.0.1 -p 11211 -c 1024 -P /tmp/memcached.pid</code><br>-d选项是启动一个守护进程如果使用supervior管理则不能使用该选项否则无法正常start<br>-m是分配给Memcache使用的内存数量单位是MB我这里设的是64MB<br>-u是运行Memcache的用户例如root<br>-l是监听的服务器IP地址如果有多个地址的话用空格分隔<br>-p是设置Memcache监听的端口这里设置了11211最好是1024以上的端口<br>-c选项是最大运行的并发连接数默认是1024<br>-P是设置保存Memcache的PID文件这里是保存在 /tmp/memcached.pid方便查看PID</p>
+<p>这里给一个简单的supervior的启动实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[program:memcached]</div><div class="line">environment=MC_ELINA=&quot;nevermore&quot;,PATH=&quot;/home/never/Envs/elina/elina&quot;</div><div class="line">command= /usr/bin/memcached -u root -m 64 -l 127.0.0.1 -p 11211 -c 1024 -P /tmp/memcached.pid</div><div class="line">user = root</div><div class="line">autostart = true     ; 在 supervisord 启动的时候也自动启动</div><div class="line">startsecs = 5        ; 启动 5 秒后没有异常退出就当作已经正常启动了</div><div class="line">autorestart = true   ; 程序异常退出后自动重启</div><div class="line">startretries = 3     ; 启动失败自动重试次数默认是 3</div><div class="line">redirect_stderr = true  ; 把 stderr 重定向到 stdout默认 false</div><div class="line">stdout_logfile_maxbytes = 50MB  ; stdout 日志文件大小默认 50MB</div><div class="line">stdout_logfile_backups = 20     ; stdout 日志文件备份数</div><div class="line">; stdout 日志文件需要注意当指定目录不存在时无法正常启动所以需要手动创建目录supervisord 会自动创建日志文件</div><div class="line">stdout_logfile = /var/log/elina/%(program_name)s_stdout.log</div></pre></td></tr></table></figure></p>
+<p>启动后可以使用查询<code>ps -ef | grep memcached</code>是否后台已启动服务<br>或者直接查看端口<code>telnet 127.0.0.1 11211</code><br>退出exit<br>Ctrl + ] Ctrl + d</p>
+<h4 id="3-配置settings"><a href="#3-配置settings" class="headerlink" title="3.配置settings"></a>3.配置settings</h4><p>为添加django的配置settings.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">CACHES = &#123;</div><div class="line">    &apos;default&apos;: &#123;</div><div class="line">        &apos;BACKEND&apos;: &apos;django.core.cache.backends.memcached.PyLibMCCache&apos;,</div><div class="line">        &apos;LOCATION&apos;: &apos;127.0.0.1:11211&apos;,</div><div class="line">        &apos;TIMEOUT&apos;: 300,  # 5 min</div><div class="line">        &apos;OPTIONS&apos;: &#123;</div><div class="line">            &apos;tcp_nodelay&apos;: True,</div><div class="line">            &apos;ketama&apos;: True,</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    &apos;file_cache&apos;: &#123;</div><div class="line">        &apos;BACKEND&apos;: &apos;django.core.cache.backends.filebased.FileBasedCache&apos;,</div><div class="line">        &apos;LOCATION&apos;: &apos;/home/never/Envs/antique/cache&apos;,</div><div class="line">        &apos;TIMEOUT&apos;: 18000,  # 5 hours</div><div class="line">        &apos;OPTIONS&apos;: &#123;</div><div class="line">            &apos;MAX_ENTRIES&apos;: 10000,</div><div class="line">            &apos;CULL_FREQUENCY&apos;: 3,</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=22683613&auto=1&height=66"></iframe>
+
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> django </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Opentsdb 部署实践]]></title>
+      <url>http://yoursite.com/2017/03/07/Opentsdb/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br><strong><em>本文更多的是本机部署过程中的问题解决以及记录，并不具备很强的广泛性。</em></strong><br>Opentsdb是基于Hbase的一种存储db,优势在于时间序列分析聚合，部署不是很方便，因为项目代码还在循环迭代中，建议安装2.0.0版本。<br>如果不是很需求时间序列聚合分析的，可以使用elastic，安装方便，也有强大的聚合分析，但是时间序列分析聚合上不如tsdb。<a id="more"></a></excerpt></p>
+<h3 id="HBASE"><a href="#HBASE" class="headerlink" title="HBASE"></a><a href="https://hbase.apache.org/book.html#quickstart" target="_blank" rel="external">HBASE</a></h3><p>依赖java,目前jdk 1.7是目前对于Hbase是相对比较支持广泛的版本，详情查看<a href="https://hbase.apache.org/book.html#java" target="_blank" rel="external">HBASE文档</a></p>
+<p>以下将已hbase1.0.0版本作为示范,其他版本请查看<a href="http://www.apache.org/dyn/closer.cgi/hbase/" target="_blank" rel="external">链接</a></p>
+<p>如果是ubuntu请特别注意/etc/hosts文件<br>具体原因请参照<a href="https://hbase.apache.org/book.html#quickstart" target="_blank" rel="external">Hbase的说明</a><br>这里有一个默认的配置示例：</p>
+<pre><code>127.0.0.1 localhost
+127.0.0.1 ubuntu.ubuntu-domain ubuntu
+</code></pre><p>开始安装hbase<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget http://archive.apache.org/dist/hbase/hbase-1.0.0/hbase-1.0.0-bin.tar.gz</div><div class="line">tar xzvf hbase-1.0.0-bin.tar.gz</div><div class="line">cd hbase-1.0.0</div></pre></td></tr></table></figure></p>
+<p><strong><em>注意！！！</em></strong>查看java版本，<code>java -version</code>,最好是1.7版本<br>下面是Ubuntu和Centos的一些示例</p>
+<ul>
+<li><p>Ubuntu<br>~sudo apt-get install openjdk-7-jdk<del>(sudo add-apt-repository ppa:openjdk-r/ppa)这个版本的jdk会在opentsdb查询时引发一个NoClassDefFoundError DateTime`<br>~sudo apt-get install oracle-java7-installer</del><code>此版本无法正常运行hbase,引发一个UnsupportedClassVersionError</code><br>and so on….</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 需要更改的可以按以下命令进行安装</div><div class="line"># 卸载原有版本jdk</div><div class="line">sudo apt-get purge openjdk*</div><div class="line"># ubuntu16.04版本已经开始使用1.8的jdk，所以添加OPENTSDB 部署实践老的ppa，并安装</div><div class="line">sudo add-apt-repository ppa:webupd8team/java  </div><div class="line">sudo apt-get update   </div><div class="line"># 注意文档上只是说1.6以上的版本，实际操作中各种版本的jdk都会出现不一样的报错，测试后发现此版本可稳定运行</div><div class="line">sudo apt-get install oracle-java7-installer</div></pre></td></tr></table></figure>
+</li>
+<li><p>CentOS<br>不再枚举无法使用的版本，仅提供一个可行方案</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 查看已安装的java</div><div class="line">rpm -qa | grep java</div><div class="line"># 根据上面的结果删除java</div><div class="line">yum -y remove java XXXX</div><div class="line"># 下载java rpm，并安装</div><div class="line">wget --no-cookies --no-check-certificate \</div><div class="line">--header &quot;Cookie:gpw_e24=http%3A%2F%2Fwww.oracle.com%2F;oraclelicense=accept-securebackup-cookie&quot; \</div><div class="line">http://download.oracle.com/otn-pub/java/jdk/7u55-b13/jdk-7u55-linux-x64.rpm</div><div class="line"></div><div class="line">rpm -Uvh jdk-7u55-linux-x64.rpm</div><div class="line">alternatives --install /usr/bin/javaws javaws /usr/java/latest/bin/javaws 2</div><div class="line">alternatives --install /usr/bin/java java /usr/java/latest/bin/java 2</div><div class="line">alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 2</div></pre></td></tr></table></figure>
+<p>修改hbase的配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># 打开配置文件</div><div class="line">vim conf/hbase-env.sh</div><div class="line"></div><div class="line">#找到JAVA_HOME，改为</div><div class="line">JAVA_HOME=/usr</div><div class="line"></div><div class="line"># 按照文档给的Example进行配置，hbase-site.xml for Standalone HBase</div><div class="line">vim conf/hbase-site.xml</div><div class="line"></div><div class="line"># 由于hbase默认为/tmp在reboot时很可能会被删除</div><div class="line"># 修改configuration，将/home/testuser/改为将要存储的位置</div><div class="line">&lt;configuration&gt;</div><div class="line">  &lt;property&gt;</div><div class="line">    &lt;name&gt;hbase.rootdir&lt;/name&gt;</div><div class="line">    &lt;value&gt;file:///home/testuser/hbase&lt;/value&gt;</div><div class="line">  &lt;/property&gt;</div><div class="line">  &lt;property&gt;</div><div class="line">    &lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt;</div><div class="line">    &lt;value&gt;/home/testuser/zookeeper&lt;/value&gt;</div><div class="line">  &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure></p>
+<p>(<em>注意，一般情况下为<code>JAVA_HOME=/usr</code>，这取决与本机的java安装位置，可以通过<code>which java</code>确认<code>/usr/bin/java</code></em>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 开启hbase</div><div class="line">./bin/start-hbase.sh</div><div class="line"># 进入shell测验</div><div class="line">./bin/hbase shell</div><div class="line"># 关闭hbase</div><div class="line">./bin/stop-hbase.sh</div></pre></td></tr></table></figure>
+<p>到此Hbase的 相对简单的stand-alone(本地版本)部署已经完毕</p>
+<h3 id="GnuPlot-暂略"><a href="#GnuPlot-暂略" class="headerlink" title="GnuPlot (暂略)"></a>GnuPlot (暂略)</h3><p>这是一个opentsdb的默认webUI界面，如果不需要可以省略</p>
+<h3 id="OpenTSDB"><a href="#OpenTSDB" class="headerlink" title="OpenTSDB"></a>OpenTSDB</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/OpenTSDB/opentsdb.git</div><div class="line">cd opentsdb</div><div class="line">./build.sh</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"># 或者</div><div class="line">wget https://github.com/OpenTSDB/opentsdb/releases/download/v2.0.0/opentsdb-2.0.0.tar.gz</div><div class="line">tar zxvf opentsdb-2.0.0.tar.gz</div><div class="line">cd opetsdb-2.0.0</div><div class="line">./build.sh</div></pre></td></tr></table></figure>
+<p>build成功之后你可以执行<code>./build/tsdb</code>运行tsdb，也可以<code>make install</code>进行安装，<code>make uninstall</code>卸载。<br>此处安装时我遇到了一些error，不过别慌还可以使用dpkg来安装。<br>由于git clone下来的是last的版本 这里用2.x.x指代实际需要替换为(build目录下)生成的版本</p>
+<pre><code>sh build.sh debian
+cd build/opentsdb-2.x.x
+dpkg -i opentsdb-2.x.x_all.deb
+</code></pre><p><code>Centos默认不支持dpkg不过可以自己装</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum -y install epel-release</div><div class="line">yum repolist</div><div class="line">yum install dpkg-devel dpkg-dev</div></pre></td></tr></table></figure></p>
+<p>这两者安装过程当中可能会出现很多WARN，这些都是jdk版本更迭带来的，只要不是ERROR都可以忽略。<br>更多信息参考<a href="http://opentsdb.net/docs/build/html/installation.html#id1" target="_blank" rel="external">Opentsdb文档</a></p>
+<p>此时我们还需要配置一下opentsdb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 配置文件会在以下四者之一，这取决于你的安装以及启动方式</div><div class="line">./opentsdb.conf</div><div class="line">/etc/opentsdb.conf</div><div class="line">/etc/opentsdb/opentsdb.conf</div><div class="line">/opt/opentsdb/opentsdb.conf</div></pre></td></tr></table></figure>
+<p>直接运行的可以到 src/opentsdb.conf 下面复制一份默认的，<br>安装后直接到/etc/opentsdb/opentsdb.conf会找到相应的文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">tsd.network.port=4242</div><div class="line">tsd.http.cachedir=/tmp/tsd - Path to write temporary files to</div><div class="line">tsd.core.auto_create_metrics=True - Whether or not to automatically create UIDs for new metric types, default is False. 可以打开。</div><div class="line">``` </div><div class="line">以上是一些配置，具体细节配置，参考[Opentsdb文档](http://opentsdb.net/docs/build/html/user_guide/configuration.html)</div><div class="line"></div><div class="line">如果是第一次启动opentsdb，需要先建立一张表：</div></pre></td></tr></table></figure>
+<p>env COMPRESSION=NONE HBASE_HOME=/home/never/work/hbase-1.0.0 /usr/share/opentsdb/tools/create_table.sh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">然后可以使用`systemctl start opentsdb`来启动opentsdb了</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">#### HTTP API</div></pre></td></tr></table></figure></p>
+<p>Present类型：使用该参数时始终为true， 即?summary=false也被认为?summary=true,仅当不添加summary或者与其他参数冲突时为false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">####/api/annotation 用于给记录添加，修改删除注释</div><div class="line">####/api/config 用于查看修改配置文件</div><div class="line">####/api/dropcaches 用于清除内存中Opentsdb缓存数据,但不包括图片，文件等</div><div class="line">####/api/put 用于更新数据</div><div class="line">这里需要确认配置文件`opentsdb.conf`内的参数`tsd.core.auto_create_metrics = true`，默认为false，设置为true将会自动生成metric，如为false时在没有该metric的情况下put会导致error，而不是新增。</div><div class="line"></div><div class="line">参数</div><div class="line">| 参数 | 类型 | 默认值 | 描述 | 示例 |</div><div class="line">| ---- | ---- | ---- | ---- | ---- |</div><div class="line">| summary | Present`可选` | false | 概要 | /api/put?summary |</div><div class="line">| details | Present`可选` | false | 详情，当同时使用summary和details时，返回details的结果 | /api/put?details |</div><div class="line">| sync | Boolean`可选` | false | 等待数据刷新到存储后返回 | /api/put?sync |</div><div class="line">| sync_timeout | Integer`可选` | 0 | 依赖于sync，设置等待时间，默认0表示 | /api/put/?sync&amp;sync_timeout=60000 |</div><div class="line"></div><div class="line">Json参数</div><div class="line">| 参数 | 类型 | 默认值 | 描述 | 示例 |</div><div class="line">| ---- | ---- | ---- | ---- | ---- |</div><div class="line">| metric | String`必选` | -- | 存储值的名称(相当于主键) | sys.cpu.nice |</div><div class="line">| timestamp | Integer`必选` | -- | 时间戳 | 1487147740 |</div><div class="line">| value | Integer, Float, String`必选` | -- | 值 | 36.22 |</div><div class="line">| tags | Map`必选` | -- | 字典类型的tag键值对 | &#123;&quot;host&quot;:&quot;web01&quot;&#125; |</div><div class="line"></div><div class="line">可以发送单个metric：</div></pre></td></tr></table></figure></p>
+<p>POST /api/put?summary<br>{<br>    “metric”: “sys.cpu.nice”,<br>    “timestamp”: 1346846400,<br>    “value”: 18,<br>    “tags”: {<br>       “host”: “web01”,<br>       “dc”: “lga”<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">也可以多个：</div></pre></td></tr></table></figure></p>
+<p>POST /api/put?summary<br>[<br>    {<br>        “metric”: “sys.cpu.nice”,<br>        “timestamp”: 1346846400,<br>        “value”: 18,<br>        “tags”: {<br>           “host”: “web01”,<br>           “dc”: “lga”<br>        }<br>    },<br>    {<br>        “metric”: “sys.cpu.nice”,<br>        “timestamp”: 1346846400,<br>        “value”: 9,<br>        “tags”: {<br>           “host”: “web02”,<br>           “dc”: “lga”<br>        }<br>    }<br>]<br>```</p>
+<p>CURL示例：<code>curl -i -X POST -d &#39;{&quot;metric&quot;:&quot;speed.上海.移动&quot;, &quot;timestamp&quot;:1487214063, &quot;value&quot;:12.5, &quot;tags&quot;:{&quot;ip&quot;:&quot;127.0.0.1&quot;, &quot;username&quot;:&quot;test&quot;}}&#39; http://127.0.0.1:4242/api/put?summary</code></p>
+<p>curl -i -X POST -d ‘{“start”: 1487214000,”end”: 1487214700,”queries”: [{“aggregator”: “sum”,”metric”: “speed.上海.移动”,”downsample”: “5m-sum”,”tags”: {“ip”: “*”}]}’ <a href="http://127.0.0.1:4242/api/query" target="_blank" rel="external">http://127.0.0.1:4242/api/query</a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=34609129&auto=1&height=66"></iframe>
+
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> tsdb </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Nginx  编译安装]]></title>
+      <url>http://yoursite.com/2017/03/07/Nginx/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>下载源码安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget http://nginx.org/download/nginx-1.10.0.tar.gz</div><div class="line">tar xvf nginx-1.10.0.tar.gz</div><div class="line">cd nginx-1.10.0</div></pre></td></tr></table></figure></excerpt></p>
+<p>解决依赖<a id="more"></a></p>
+<p>下载源码安装包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget http://nginx.org/download/nginx-1.10.0.tar.gz</div><div class="line">tar xvf nginx-1.10.0.tar.gz</div><div class="line">cd nginx-1.10.0</div></pre></td></tr></table></figure>
+<p>解决依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># 注意以下可选配置可能会引发一些相应的依赖库 下面是遇到的问题 以及解决方案</div><div class="line"># --with-http_xslt_module 时提示 the HTTP XSLT module requires the libxml2/libxslt libraries</div><div class="line">apt-get install libxml2 libxml2-dev libxslt-dev</div><div class="line"></div><div class="line"># --with-http_image_filter_module 时提示 the HTTP image filter module requires the GD library</div><div class="line">apt-get install libgd-dev</div><div class="line"></div><div class="line"># --with-http_geoip_module 时提示 the GeoIP module requires the GeoIP library.</div><div class="line">apt-get install geoip-database libgeoip-dev</div><div class="line"></div><div class="line"># rewrite 时提示 the HTTP rewrite module requires the PCRE library.</div><div class="line">apt-get install libpcre3 libpcre3-dev</div></pre></td></tr></table></figure>
+<p>当然你如果不想考虑那么多 那么 下面这行代码 执行即可。<code>apt-get install libxml2 libxml2-dev libxslt-dev libgd-dev geoip-database libgeoip-dev libpcre3 libpcre3-dev</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure --with-cc-opt=&apos;-g -O2 -fPIE -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2&apos; --with-ld-opt=&apos;-Wl,-Bsymbolic-functions -fPIE -pie -Wl,-z,relro -Wl,-z,now&apos; --prefix=/usr/share/nginx --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --with-debug --with-pcre-jit --with-ipv6 --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module --with-http_auth_request_module --with-http_addition_module --with-http_dav_module --with-http_geoip_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_image_filter_module --with-http_v2_module --with-http_sub_module --with-http_xslt_module --with-stream --with-stream_ssl_module --with-mail --with-mail_ssl_module --with-threads --with-http_stub_status_module</div></pre></td></tr></table></figure>
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> nginx </tag>
+            
+            <tag> ubuntu </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Haproxy]]></title>
+      <url>http://yoursite.com/2017/03/07/Haproxy/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>Haproxy日志系统配置，以及限速简介</excerpt></p>
+<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>haproxy默认是不配置日志的<br>因此需要日志的话需要自己配置<a id="more"></a></p>
+<p>首先确保haproxy内的配置文件一般为<code>/etc/haproxy/haproxy.cfg</code>, 存在关于log的配置记住local1 notice只要与后面配置的rsysylog一致即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">global</div><div class="line">log /dev/loglocal0</div><div class="line">log /dev/loglocal1 notice</div></pre></td></tr></table></figure></p>
+<p>修改rsyslog配置<code>vim  /etc/rsyslog.d/haproxy.conf</code>内填入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ModLoad imudp</div><div class="line">$UDPServerRun 514</div><div class="line"># 注意这里的local1对应为haproxy.cfg的loacl1</div><div class="line">local1.*     /var/log/haproxy.log</div><div class="line">#如果不加下面的的配置则除了在/var/log/haproxy.log中写入日志外也会写入message文件</div><div class="line">&amp;~</div></pre></td></tr></table></figure></p>
+<p>重启rsyslog和haproxy即可<br><code>sudo systemctl restart rsyslog</code>, <code>sudo systemctl restart haproxy</code></p>
+<h2 id="haproxy针对每个user的限制"><a href="#haproxy针对每个user的限制" class="headerlink" title="haproxy针对每个user的限制"></a>haproxy针对每个user的限制</h2><p>修改haproxy配置<code>vim /etc/haproxy/haproxy.cfg</code></p>
+<p> 原理是基于用户每次流量的字节吞吐量进行统计10s内过期如果超过一定量则将该用户的请求全部转向延时服务器给予响应<br> 该方法也有一个显著的<strong>缺点</strong>即用户开启下载时直至用户下载完成字节吞吐量才会一次性计入统计即下载时完全无限制<strong>直到下载完成时才计入统计</strong><br>   <strong>因此haproxy还是比较适合做用户访问频率限制而流量限制交给squid比较合适</strong><br>   访问频率限制其实也很简单将bytes_out_rate的统计改为http_req_rate统计修改限制参数即可此处不做延伸<br>   详情可参阅<a href="https://cbonte.github.io/haproxy-dconv/1.6/configuration.html#7.3.3-sc_http_req_rate" target="_blank" rel="external">文档</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">31 frontend http_3333</div><div class="line">32   mode http</div><div class="line">33   # 绑定3333端口</div><div class="line">34   bind 0.0.0.0:3333</div><div class="line">35   # 建立一张存储键为用户auth的表 过期时间为30s表容量100k记录用户10s内的访问流量</div><div class="line">36   stick-table type string size 100k expire 30s store bytes_out_rate(10s)</div><div class="line">37   # 最大检测时间为5s超过则返回</div><div class="line">38   tcp-request inspect-delay 5s</div><div class="line">39   # 将流量速率统计以proxy authorization为键存入sc1</div><div class="line">40   tcp-request content track-sc1 hdr(proxy-authorization)</div><div class="line">41   # .css .js .svg .ico 等文件 计入限速流量但不reject 其余请求 每10s限制10kb(10240字节 超过则reject </div><div class="line">42   # tcp-request content reject if !&#123; path_end .css .js .svg .ico &#125; &#123; sc1_bytes_out_rate ge 10240 &#125;</div><div class="line">43   # .css .js .svg .ico 等文件 计入限速流量但不reject 其余请求 每10s限制10kb(10240字节</div><div class="line">44   # 超过速率的请求将使用延时backend进行代理</div><div class="line">45   use_backend delayed if !&#123; path_end .css .js .svg .ico &#125; &#123; sc2_bytes_out_rate ge 10240 &#125;</div><div class="line">46   default_backend squid</div><div class="line">47 </div><div class="line">48 backend delayed</div><div class="line">49   mode http</div><div class="line">50   # 延时2s超过限速时使用延时backend经过该backend的所有请求均延时2s</div><div class="line">51   tcp-request inspect-delay 2s</div><div class="line">52   tcp-request content accept if WAIT_END</div><div class="line">53   server local 127.0.0.1:7228</div></pre></td></tr></table></figure></p>
+<p>另外可以查看存储的键值表内的信息使用命令<code>sudo watch -n 1 &#39;echo &quot;show table http_3333&quot; | socat unix:/run/haproxy/admin.sock -&#39;</code> 即可实时查看http_3333的frontend中存储的表信息进行调试了</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=28531849&auto=1&height=66"></iframe>
+
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> haproxy </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Squid端口限速]]></title>
+      <url>http://yoursite.com/2017/03/03/Squid/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""></excerpt></p>
+<h3 id="squid限制每个用户（端口，网段，ip）的流量"><a href="#squid限制每个用户（端口，网段，ip）的流量" class="headerlink" title="squid限制每个用户（端口，网段，ip）的流量"></a>squid限制每个用户（端口，网段，ip）的流量</h3><p>下面以4个级别的端口限速为例，建立不同的acl<a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"># 开启四个限速端口</div><div class="line">http_port 0.0.0.0:7221</div><div class="line">http_port 0.0.0.0:7222</div><div class="line">http_port 0.0.0.0:7223</div><div class="line">http_port 0.0.0.0:7224</div><div class="line">http_port 0.0.0.0:7225</div><div class="line">http_port 0.0.0.0:7226</div><div class="line"># 各自端口建立acl</div><div class="line">acl limited_7221 myport 7221</div><div class="line">acl limited_7222 myport 7222</div><div class="line">acl limited_7223 myport 7223</div><div class="line">acl limited_7224 myport 7224</div><div class="line">acl limited_7225 myport 7225</div><div class="line">acl limited_7226 myport 7226</div><div class="line"></div><div class="line"># 建立4个delay_pools</div><div class="line">delay_pools 6</div><div class="line"># class 4 管理user,注意仅当class类型为4时才能管控user流量</div><div class="line">delay_class 1 4</div><div class="line">delay_class 2 4</div><div class="line">delay_class 3 4</div><div class="line">delay_class 4 4</div><div class="line">delay_class 5 4</div><div class="line">delay_class 6 4</div><div class="line"># delay_parameters pool aggregate network individual user</div><div class="line"># delay_parameters 池号  限制总量   网段限制  ip限制    用户限制</div><div class="line"># none 代表无限制, none适用于3.5版本的squid，3.3中的 -1/-1等价与none</div><div class="line"># 1080P 13M/s</div><div class="line">delay_parameters 1 none none none 13981000/13981000</div><div class="line"># 720P  8M/s</div><div class="line">delay_parameters 2 none none none 9087650/9087650</div><div class="line"># 480P 4M/s</div><div class="line">delay_parameters 3 none none none 4194300/4194300</div><div class="line"># 360P 3M/s</div><div class="line">delay_parameters 4 none none none 3495250/3495250</div><div class="line"># 240P 2M/s</div><div class="line">delay_parameters 5 none none none 2097150/2097150</div><div class="line"># 144P 1M/s</div><div class="line">delay_parameters 6 none none none 1398100/1398100</div><div class="line"># </div><div class="line">delay_access 1 allow limited_7221</div><div class="line">delay_access 2 allow limited_7222</div><div class="line">delay_access 3 allow limited_7223</div><div class="line">delay_access 4 allow limited_7224</div><div class="line">delay_access 5 allow limited_7225</div><div class="line">delay_access 6 allow limited_7226</div></pre></td></tr></table></figure>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=28952211&auto=1&height=66"></iframe>
+
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> squid </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Virtualenvwrapper]]></title>
+      <url>http://yoursite.com/2017/03/03/virtualenvwrapper/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br><code>pip install virtualenvwrapper</code><br>将下面代码写入SHELL的环境变量，通过相关搜索得到建议ubuntu用户将其添加如~/.bash_profile文件内，deepin下好像没有，因此我将其添加进了~/.bashrc<a id="more"></a></excerpt></p>
+<p><code>pip install virtualenvwrapper</code><br>将下面代码写入SHELL的环境变量，通过相关搜索得到建议ubuntu用户将其添加如~/.bash_profile文件内，deepin下好像没有，因此我将其添加进了~/.bashrc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export WORKON_HOME=~/Envs</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div></pre></td></tr></table></figure>
+<p>添加好环境变量之后执行如下语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mkdir -p $WORKON_HOME 为虚拟环境建立一个文件夹，仅第一次需要</div><div class="line">echo &apos;cd $VIRTUAL_ENV&apos;&gt;&gt;$WORKON_HOME/postactivate 设置进入虚拟环境时的默认目录</div><div class="line">mkvirtualenv [envname]创建一个虚拟环境，和virtual一样可以指定参数例如-p</div><div class="line">workon [envname]实际上当你新建的时候，你就会进入这个虚拟环境，这条命令用于你下一次再进入或切换到envname环境下</div><div class="line">deactivate 退出虚拟环境</div><div class="line">rmvirtualenv [envname]删除虚拟环境</div></pre></td></tr></table></figure>
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Chef learning review]]></title>
+      <url>http://yoursite.com/2017/03/03/learning-review/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>chef 管理用户以及限权限</excerpt></p>
+<p>为chef添加admin用户：<br>登录到chef server的主机上执行<br><code>chef-server-ctl org-user-add ORG USER --admin</code>，该命令也可为已添加的用户提升至admin权限<a id="more"></a></p>
+<p>节点自举：<br><code>knife bootstrap XXX.XX.XX.XXX  -x root -r &#39;role[cnproxy]&#39; -E production -N cnsh02.sha.ap1.elina2.net</code><br>首先确定本机有登录远程机器XXX.XX.XX.XXX的权限，-x 表示以root身份登录， -r 表示预先分配的role， -E代表预先分配的enviment， -N代表节点名。</p>
+<p>knife bootstrap     144.76.233.41  -x root -r ‘role[base]’ -E production -N     elk.infra.elina2.net</p>
+<h2 id="Chef-User限权"><a href="#Chef-User限权" class="headerlink" title="Chef User限权"></a>Chef User限权</h2><p><code>users以及sudo是由chef cookbook管理生成的</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/ruby</div><div class="line"># -*- coding: UTF-8 -*-</div><div class="line"></div><div class="line">include_recipe &apos;users&apos;</div><div class="line">include_recipe &apos;sudo&apos;</div><div class="line"></div><div class="line"># 限权首先建立一个limited-ops用户组</div><div class="line">users_manage &quot;limited-ops&quot; do</div><div class="line">	# group_id 自取，不与已有gid重复即可</div><div class="line">    group_id 2334</div><div class="line">    action [ :remove, :create ]</div><div class="line">end</div><div class="line"></div><div class="line"># 将需要禁止的命令存入Attributes内</div><div class="line"># 我这里存在一个base的role内，node[&apos;dangerous_cmds&apos;][&apos;path&apos;]</div><div class="line"># 这样方便在chef service上，修改禁止列表</div><div class="line"># &quot;dangerous_cmds&quot;: &#123;</div><div class="line">#   &quot;mode&quot;: &quot;0744&quot;,</div><div class="line">#   &quot;path&quot;: [</div><div class="line">#     &quot;/sbin/reboot&quot;,</div><div class="line">#     &quot;/sbin/shutdown&quot;,</div><div class="line">#     &quot;/sbin/init&quot;,</div><div class="line">#     &quot;/sbin/halt&quot;,</div><div class="line">#     &quot;/sbin/poweroff&quot;</div><div class="line">#   ]</div><div class="line"># &#125;</div><div class="line"># 修改命令文件的权限，为744,即只有root用户有执行权限</div><div class="line">for cmd in node[&apos;dangerous_cmds&apos;][&apos;path&apos;] do</div><div class="line">  file cmd do</div><div class="line">    mode node[&apos;dangerous_cmds&apos;][&apos;mode&apos;]</div><div class="line">  end</div><div class="line">end</div><div class="line"></div><div class="line"># 禁止limited-ops用户组内的用户以sudo运行以上命令</div><div class="line">sudo &apos;limited-ops-sudo&apos; do</div><div class="line">    group     &apos;%limited-ops&apos;</div><div class="line">    runas     &apos;ALL&apos;</div><div class="line">    nopasswd  true</div><div class="line">    commands  [&apos;ALL&apos;] + node[&apos;dangerous_cmds&apos;][&apos;path&apos;].map&#123;|cmd| &quot;!&quot; + cmd&#125;</div><div class="line">end</div></pre></td></tr></table></figure></p>
+<p>修改data bags 需要限制权限的用户 将用户组改为limited-ops，<br><code>&quot;groups&quot;: [ &quot;limited-ops&quot; ]</code><br>最后执行chef-client下发配置即可</p>
+<h2 id="Chef-Bugs"><a href="#Chef-Bugs" class="headerlink" title="Chef Bugs"></a>Chef Bugs</h2><h3 id="Service-XXX-cannot-be-found-in-the-resource-collection"><a href="#Service-XXX-cannot-be-found-in-the-resource-collection" class="headerlink" title="Service[XXX] cannot be found in the resource collection"></a>Service[XXX] cannot be found in the resource collection</h3><p>[2017-03-02T20:57:17-05:00] ERROR: resource cookbook_file[/etc/nginx/conf.d/speedtest.conf] is configured to notify resource service[nginx] with action restart, but service[nginx] cannot be found in the resource collection. cookbook_file[/etc/nginx/conf.d/speedtest.conf] is defined in /var/chef/cache/cookbooks/sslproxy/recipes/nginx.rb:10:in `from_file’</p>
+<p>服务未被定义之前无法在其他模块中使用，类似<code>notifies :restart, &#39;service[XXX]&#39;, :delayed</code>的语句将引发此错误。<br>定义服务也很简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">service &apos;XXX&apos; do</div><div class="line">  action [:enable, :start]</div><div class="line">end</div></pre></td></tr></table></figure></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> chef </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>
