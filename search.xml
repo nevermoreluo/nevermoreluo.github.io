@@ -179,30 +179,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Django Rest Framework]]></title>
-      <url>http://yoursite.com/2017/03/07/DjangoRestFramework/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br><a href="http://www.django-rest-framework.org/tutorial/quickstart/" target="_blank" rel="external">Django Rest Framework</a><br>django 第三方库对models实现restful规范的response管理<br>安装<code>pip install djangorestframework</code><br>settings.py配置<a id="more"></a></excerpt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = (</div><div class="line">    ...</div><div class="line">    &apos;rest_framework&apos;,</div><div class="line">)</div><div class="line"></div><div class="line"># djangorestframework</div><div class="line">REST_FRAMEWORK = &#123;</div><div class="line">    # 是否需要权限登陆验证</div><div class="line">    &apos;DEFAULT_AUTHENTICATION_CLASSES&apos;: [],</div><div class="line">    &apos;DEFAULT_PERMISSION_CLASSES&apos;: [],</div><div class="line">    # &apos;DEFAULT_PERMISSION_CLASSES&apos;: (&apos;rest_framework.permissions.IsAdminUser&apos;,),</div><div class="line">    # 设置每页modelsList返回个数</div><div class="line">    &apos;PAGE_SIZE&apos;: 100,</div><div class="line">    # 设置失败请求的自定义返回内容</div><div class="line">    &apos;EXCEPTION_HANDLER&apos;: &apos;antique.utils.custom_exception_handler&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>urls.py配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">from django.conf.urls import url, include</div><div class="line">from rest_framework import routers</div><div class="line">router = routers.DefaultRouter()</div><div class="line">urlpatterns = [</div><div class="line">    url(r&apos;^&apos;, include(router.urls)),</div><div class="line">    ......</div><div class="line">]</div></pre></td></tr></table></figure></p>
-<p>serializer.py序列化models</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">from django.contrib.auth.models import User</div><div class="line">from rest_framework import serializers</div><div class="line"></div><div class="line"># Serializers define the API representation.</div><div class="line">class UserSerializer(serializers.HyperlinkedModelSerializer):</div><div class="line">    class Meta:</div><div class="line">        model = User</div><div class="line">        fields = (&apos;url&apos;, &apos;username&apos;, &apos;email&apos;, &apos;is_staff&apos;)</div></pre></td></tr></table></figure>
-<p>views.py 这里可以选择由简洁的ModelViewSet来生成此外还可以自定义一些方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from rest_framework import viewsets</div><div class="line"># ViewSets define the view behavior.</div><div class="line">class UserViewSet(viewsets.ModelViewSet):</div><div class="line">    queryset = User.objects.all()</div><div class="line">    serializer_class = UserSerializer</div></pre></td></tr></table></figure></p>
-<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=405343998&auto=1&height=66"></iframe></p>
-<the rest="" of="" contents="" |="" 余下全文="">
-</the>]]></content>
-      
-        
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> django </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Django Celery]]></title>
       <url>http://yoursite.com/2017/03/07/DjangoCelery/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>Django Celery, django celery 配置简介</excerpt></p>
@@ -218,6 +194,30 @@ pip install redis</code>这两者都有相对应的django支持包例如django-r
 <h3 id="3-在supervior中启动celery"><a href="#3-在supervior中启动celery" class="headerlink" title="3. 在supervior中启动celery"></a>3. 在supervior中启动celery</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[program:celery]</div><div class="line">;环境变量可加可不加</div><div class="line">environment=MC_ELINA=&quot;nevermore&quot;,PYTHONPATH=&quot;/home/never/Envs/proj/proj&quot;,C_FORCE_ROOT=&quot;true&quot;</div><div class="line">command=/home/never/Envs/proj/bin/celery -A proj.tasks worker -l info --workdir=/home/never/Envs/proj/%(program_name)s -B</div><div class="line">; 注意定时任务需要加入-B参数否则无法启用任务</div><div class="line">process_name = %(program_name)s_%(process_num)02d</div><div class="line">;numprocs设置为1,如果设置为2所有任务都将再重复一次</div><div class="line">numprocs=1</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">redirect_stderr=true</div><div class="line">stdout_logfile=/var/log/proj/%(program_name)s.log</div><div class="line">user=root</div></pre></td></tr></table></figure>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=3986040&auto=1&height=66"></iframe>
 
+<the rest="" of="" contents="" |="" 余下全文="">
+</the>]]></content>
+      
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> django </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Django Rest Framework]]></title>
+      <url>http://yoursite.com/2017/03/07/DjangoRestFramework/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br><a href="http://www.django-rest-framework.org/tutorial/quickstart/" target="_blank" rel="external">Django Rest Framework</a><br>django 第三方库对models实现restful规范的response管理<br>安装<code>pip install djangorestframework</code><br>settings.py配置<a id="more"></a></excerpt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = (</div><div class="line">    ...</div><div class="line">    &apos;rest_framework&apos;,</div><div class="line">)</div><div class="line"></div><div class="line"># djangorestframework</div><div class="line">REST_FRAMEWORK = &#123;</div><div class="line">    # 是否需要权限登陆验证</div><div class="line">    &apos;DEFAULT_AUTHENTICATION_CLASSES&apos;: [],</div><div class="line">    &apos;DEFAULT_PERMISSION_CLASSES&apos;: [],</div><div class="line">    # &apos;DEFAULT_PERMISSION_CLASSES&apos;: (&apos;rest_framework.permissions.IsAdminUser&apos;,),</div><div class="line">    # 设置每页modelsList返回个数</div><div class="line">    &apos;PAGE_SIZE&apos;: 100,</div><div class="line">    # 设置失败请求的自定义返回内容</div><div class="line">    &apos;EXCEPTION_HANDLER&apos;: &apos;antique.utils.custom_exception_handler&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>urls.py配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">from django.conf.urls import url, include</div><div class="line">from rest_framework import routers</div><div class="line">router = routers.DefaultRouter()</div><div class="line">urlpatterns = [</div><div class="line">    url(r&apos;^&apos;, include(router.urls)),</div><div class="line">    ......</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>serializer.py序列化models</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">from django.contrib.auth.models import User</div><div class="line">from rest_framework import serializers</div><div class="line"></div><div class="line"># Serializers define the API representation.</div><div class="line">class UserSerializer(serializers.HyperlinkedModelSerializer):</div><div class="line">    class Meta:</div><div class="line">        model = User</div><div class="line">        fields = (&apos;url&apos;, &apos;username&apos;, &apos;email&apos;, &apos;is_staff&apos;)</div></pre></td></tr></table></figure>
+<p>views.py 这里可以选择由简洁的ModelViewSet来生成此外还可以自定义一些方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from rest_framework import viewsets</div><div class="line"># ViewSets define the view behavior.</div><div class="line">class UserViewSet(viewsets.ModelViewSet):</div><div class="line">    queryset = User.objects.all()</div><div class="line">    serializer_class = UserSerializer</div></pre></td></tr></table></figure></p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=405343998&auto=1&height=66"></iframe></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 </the>]]></content>
       
