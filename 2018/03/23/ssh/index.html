@@ -15,13 +15,19 @@
 
 
 
+<meta name="description" content="ssh 配置文件ssh 开启代理时ssh时常断连问题打开配置文件vim ~/.ssh/config 加入123456Host *    ServerAliveInterval 30    ServerAliveCountMax 90    StrictHostKeyChecking no    UserKnownHostsFile /dev/null    LogLevel error
+重新打">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nevermore Blog">
-<meta property="og:url" content="http://yoursite.com/2018/03/23/test/index.html">
+<meta property="og:title" content="ssh配置 以及 GitHub多账户">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/ssh/index.html">
 <meta property="og:site_name" content="Nevermore Blog">
-<meta property="og:updated_time" content="2017-03-21T08:23:34.517Z">
+<meta property="og:description" content="ssh 配置文件ssh 开启代理时ssh时常断连问题打开配置文件vim ~/.ssh/config 加入123456Host *    ServerAliveInterval 30    ServerAliveCountMax 90    StrictHostKeyChecking no    UserKnownHostsFile /dev/null    LogLevel error
+重新打">
+<meta property="og:updated_time" content="2018-03-23T12:20:43.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nevermore Blog">
+<meta name="twitter:title" content="ssh配置 以及 GitHub多账户">
+<meta name="twitter:description" content="ssh 配置文件ssh 开启代理时ssh时常断连问题打开配置文件vim ~/.ssh/config 加入123456Host *    ServerAliveInterval 30    ServerAliveCountMax 90    StrictHostKeyChecking no    UserKnownHostsFile /dev/null    LogLevel error
+重新打">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -53,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Nevermore Blog</title>
+<title>ssh配置 以及 GitHub多账户 | Nevermore Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -197,7 +203,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSIS/">NSIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chef/">chef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haproxy/">haproxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import/">import</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipython/">ipython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tsdb/">tsdb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSIS/">NSIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chef/">chef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haproxy/">haproxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import/">import</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipython/">ipython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tsdb/">tsdb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
                     </div>
                 </section>
                 
@@ -268,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ssh" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/03/23/test/" class="article-date">
-      <time datetime="2018-03-23T10:20:30.761Z" itemprop="datePublished">2018-03-23</time>
+      <a href="/2018/03/23/ssh/" class="article-date">
+      <time datetime="2018-03-23T11:23:43.000Z" itemprop="datePublished">2018-03-23</time>
 </a>
 
 
@@ -283,10 +289,49 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ssh配置 以及 GitHub多账户
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <p><excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
+<h1 id="ssh-配置文件"><a href="#ssh-配置文件" class="headerlink" title="ssh 配置文件"></a>ssh 配置文件</h1><h2 id="ssh-开启代理时ssh时常断连问题"><a href="#ssh-开启代理时ssh时常断连问题" class="headerlink" title="ssh 开启代理时ssh时常断连问题"></a>ssh 开启代理时ssh时常断连问题</h2><p>打开配置文件<code>vim ~/.ssh/config</code> 加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Host *</div><div class="line">    ServerAliveInterval 30</div><div class="line">    ServerAliveCountMax 90</div><div class="line">    StrictHostKeyChecking no</div><div class="line">    UserKnownHostsFile /dev/null</div><div class="line">    LogLevel error</div></pre></td></tr></table></figure></p>
+<p>重新打开终端即可生效（或执行<code>source ~/.ssh/config</code>）<a id="more"></a></p>
+<h2 id="添加ssh快捷指令"><a href="#添加ssh快捷指令" class="headerlink" title="添加ssh快捷指令"></a>添加ssh快捷指令</h2><p>新建文件夹，用户存放ssh配置文件<code>mkdir ~/.ssh/config.d</code></p>
+<p>打开配置文件<code>vim ~/.ssh/config</code> 在最后加入 <code>Include ~/.ssh/config.d/*</code><br>(<code>echo &#39;Include ~/.ssh/config.d/*&#39; &gt;&gt; ~/.ssh/config</code>)</p>
+<p>新建文件<code>vim ~/.ssh/config.d/my</code>， my为指代你可以另外起名其他名称</p>
+<p>以下配置意思为，当在终端输入<code>ssh yj</code>时，等价于<code>ssh -i ~/.ssh/id_rsa root@127.0.75.46 -p 10023</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Host yj</div><div class="line">HostName 127.0.75.46</div><div class="line">User root</div><div class="line">Port 10023</div><div class="line">IdentityFile ~/.ssh/id_rsa</div></pre></td></tr></table></figure></p>
+<h2 id="Git多账户"><a href="#Git多账户" class="headerlink" title="Git多账户"></a>Git多账户</h2><p>Git多账户其实是 为ssh添加快捷指令引申出来的一项解决方案</p>
+<p>假设你现在有两个项目，为不同的项目使用不同的key提交<br>repo1： <code>git@github.com:account/playbooks.git</code><br>repo2:  <code>git@github.com:account2/foo.git</code></p>
+<p>以下将配置repo1使用默认的id_rsa<br>而repo2使用id_rsa_2提交（注意：id_rsa_2可以改成其他名字 不是id_rsa和config即可）</p>
+<h3 id="1、首先要有一对默认的秘钥，-ssh-id-rsa-和-ssh-id-rsa-pub-，"><a href="#1、首先要有一对默认的秘钥，-ssh-id-rsa-和-ssh-id-rsa-pub-，" class="headerlink" title="1、首先要有一对默认的秘钥，~/.ssh/id_rsa 和~/.ssh/id_rsa.pub ，"></a>1、首先要有一对默认的秘钥，<code>~/.ssh/id_rsa</code> 和<code>~/.ssh/id_rsa.pub</code> ，</h3><p>如果已经有了就直接到第2步，记得修改成你的邮箱<br><code>ssh-keygen -f ~/.ssh/id_rsa -t rsa -C &quot;your_email@example.com&quot;</code><br>指令输入后会问你是否需要密码，当然两次回车即为空</p>
+<h3 id="2、生成另一对秘钥，同样修改邮箱。"><a href="#2、生成另一对秘钥，同样修改邮箱。" class="headerlink" title="2、生成另一对秘钥，同样修改邮箱。"></a>2、生成另一对秘钥，同样修改邮箱。</h3><p><code>ssh-keygen -f ~/.ssh/id_rsa_2 -t rsa -C &quot;your_email@example.com&quot;</code></p>
+<h3 id="3、然后又回到了-上面添加ssh快捷指令-的步骤，已经走过的兄弟可以跳到第4步"><a href="#3、然后又回到了-上面添加ssh快捷指令-的步骤，已经走过的兄弟可以跳到第4步" class="headerlink" title="3、然后又回到了 上面添加ssh快捷指令 的步骤，已经走过的兄弟可以跳到第4步"></a>3、然后又回到了 上面添加ssh快捷指令 的步骤，已经走过的兄弟可以跳到第4步</h3><p>新建文件夹，用户存放ssh配置文件<code>mkdir ~/.ssh/config.d</code><br>打开配置文件<code>vim ~/.ssh/config</code> 在最后加入 <code>Include ~/.ssh/config.d/*</code><br>(<code>echo &#39;Include ~/.ssh/config.d/*&#39; &gt;&gt; ~/.ssh/config</code>)</p>
+<h3 id="4、新建配置文件-vim-ssh-config-d-git-id-rsa-2-git-id-rsa-2可以改为其他名称但是需要注意于第5步里的git-id-rsa-2保持一致"><a href="#4、新建配置文件-vim-ssh-config-d-git-id-rsa-2-git-id-rsa-2可以改为其他名称但是需要注意于第5步里的git-id-rsa-2保持一致" class="headerlink" title="4、新建配置文件 vim ~/.ssh/config.d/git_id_rsa_2,(git_id_rsa_2可以改为其他名称但是需要注意于第5步里的git_id_rsa_2保持一致)"></a>4、新建配置文件 <code>vim ~/.ssh/config.d/git_id_rsa_2</code>,(git_id_rsa_2可以改为其他名称但是需要注意于第5步里的git_id_rsa_2保持一致)</h3><p> 由于repo1默认使用~/.ssh/id_rsa,我们只用添加repo2的即可<br>写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Host git_id_rsa_2</div><div class="line">HostName github.com</div><div class="line">User git</div><div class="line">IdentityFile ~/.ssh/id_rsa_2</div></pre></td></tr></table></figure></p>
+<h3 id="5、修改repo2的remote"><a href="#5、修改repo2的remote" class="headerlink" title="5、修改repo2的remote"></a>5、修改repo2的remote</h3><p>cd到repo2所在的目录<br>执行<code>git remote set-url git@git_id_rsa_2:account2/foo.git</code>即可</p>
+<p>以上5步所要实现的就是 当使用git时会向git@git_id_rsa_2推送/拉取数据，<br>而此时ssh配置内git_id_rsa_2的会等价于ssh -i ~/.ssh/id_rsa_2 git@github.com</p>
+<p>以上</p>
+<the rest="" of="" contents="" |="" 余下全文=""></the>
       
     </div>
     
@@ -294,13 +339,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/23/test/"></a></p>
+        <p><span>本文标题:</span><a href="/2018/03/23/ssh/">ssh配置 以及 GitHub多账户</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Never</a></p>
-        <p><span>发布时间:</span>2018-03-23, 18:20:30</p>
-        <p><span>最后更新:</span>2017-03-21, 16:23:34</p>
+        <p><span>发布时间:</span>2018-03-23, 19:23:43</p>
+        <p><span>最后更新:</span>2018-03-23, 20:20:43</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/23/test/" title="">http://yoursite.com/2018/03/23/test/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/03/23/test/　　作者: Never" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/23/ssh/" title="ssh配置 以及 GitHub多账户">http://yoursite.com/2018/03/23/ssh/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/03/23/ssh/　　作者: Never" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -327,7 +372,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh-配置文件"><span class="toc-number">1.</span> <span class="toc-text">ssh 配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh-开启代理时ssh时常断连问题"><span class="toc-number">1.1.</span> <span class="toc-text">ssh 开启代理时ssh时常断连问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加ssh快捷指令"><span class="toc-number">1.2.</span> <span class="toc-text">添加ssh快捷指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git多账户"><span class="toc-number">1.3.</span> <span class="toc-text">Git多账户</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、首先要有一对默认的秘钥，-ssh-id-rsa-和-ssh-id-rsa-pub-，"><span class="toc-number">1.3.1.</span> <span class="toc-text">1、首先要有一对默认的秘钥，~/.ssh/id_rsa 和~/.ssh/id_rsa.pub ，</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、生成另一对秘钥，同样修改邮箱。"><span class="toc-number">1.3.2.</span> <span class="toc-text">2、生成另一对秘钥，同样修改邮箱。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、然后又回到了-上面添加ssh快捷指令-的步骤，已经走过的兄弟可以跳到第4步"><span class="toc-number">1.3.3.</span> <span class="toc-text">3、然后又回到了 上面添加ssh快捷指令 的步骤，已经走过的兄弟可以跳到第4步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、新建配置文件-vim-ssh-config-d-git-id-rsa-2-git-id-rsa-2可以改为其他名称但是需要注意于第5步里的git-id-rsa-2保持一致"><span class="toc-number">1.3.4.</span> <span class="toc-text">4、新建配置文件 vim ~/.ssh/config.d/git_id_rsa_2,(git_id_rsa_2可以改为其他名称但是需要注意于第5步里的git_id_rsa_2保持一致)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、修改repo2的remote"><span class="toc-number">1.3.5.</span> <span class="toc-text">5、修改repo2的remote</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -363,7 +408,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"　| Nevermore Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"ssh配置 以及 GitHub多账户　| Nevermore Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -382,8 +427,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://yoursite.com/2018/03/23/test/';
-            this.page.identifier = '2018/03/23/test/';
+            this.page.url = 'http://yoursite.com/2018/03/23/ssh/';
+            this.page.identifier = '2018/03/23/ssh/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -417,7 +462,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/23/test/">test</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/ipython_install/">IPython 安装后打开报错ImportError</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Python_import/">Python 相对导入Bugs</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/NSIS/">NSIS打包C# 程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/gitrelese/">Git Relese自动加载Assets</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/DjangoCelery/">Django Celery</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/DjangoRestFramework/">Django Rest Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/DjangoCache/">Django Cache 缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/Opentsdb/">Opentsdb 部署实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/Nginx/">Nginx  编译安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/Haproxy/">Haproxy</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/Squid/">Squid端口限速</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/virtualenvwrapper/">Virtualenvwrapper</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/learning-review/">Chef learning review</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/23/ssh/">ssh配置 以及 GitHub多账户</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/ipython_install/">IPython 安装后打开报错ImportError</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Python_import/">Python 相对导入Bugs</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/NSIS/">NSIS打包C# 程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/gitrelese/">Git Relese自动加载Assets</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/DjangoCache/">Django Cache 缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/DjangoRestFramework/">Django Rest Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/DjangoCelery/">Django Celery</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/Opentsdb/">Opentsdb 部署实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/Nginx/">Nginx  编译安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/Haproxy/">Haproxy</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/Squid/">Squid端口限速</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/virtualenvwrapper/">Virtualenvwrapper</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/learning-review/">Chef learning review</a></li></ul>
 
 
 

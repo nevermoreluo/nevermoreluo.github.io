@@ -15,19 +15,12 @@
 
 
 
-<meta name="description" content="Haproxy日志系统配置，以及限速简介
-日志haproxy默认是不配置日志的因此需要日志的话需要自己配置">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Haproxy">
-<meta property="og:url" content="http://yoursite.com/2017/03/07/Haproxy/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nevermore Blog">
+<meta property="og:url" content="http://yoursite.com/tags/github/index.html">
 <meta property="og:site_name" content="Nevermore Blog">
-<meta property="og:description" content="Haproxy日志系统配置，以及限速简介
-日志haproxy默认是不配置日志的因此需要日志的话需要自己配置">
-<meta property="og:updated_time" content="2017-03-09T15:29:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Haproxy">
-<meta name="twitter:description" content="Haproxy日志系统配置，以及限速简介
-日志haproxy默认是不配置日志的因此需要日志的话需要自己配置">
+<meta name="twitter:title" content="Nevermore Blog">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +52,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Haproxy | Nevermore Blog</title>
+<title>Tag: github | Nevermore Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -69,9 +62,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: true,
+        isPost: false,
         isArchive: false,
-        isTag: false,
+        isTag: true,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -274,204 +267,56 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Haproxy" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2017/03/07/Haproxy/" class="article-date">
-      <time datetime="2017-03-07T01:00:43.000Z" itemprop="datePublished">2017-03-07</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2018/03/23/ssh/" class="archive-article-date">
+      <time datetime="2018-03-23T11:23:43.000Z" itemprop="datePublished">03-23</time>
 </a>
 
 
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Haproxy
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/03/23/ssh/">ssh配置 以及 GitHub多账户</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/haproxy/">haproxy</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>Haproxy日志系统配置，以及限速简介</excerpt></p>
-<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>haproxy默认是不配置日志的<br>因此需要日志的话需要自己配置<a id="more"></a></p>
-<p>首先确保haproxy内的配置文件一般为<code>/etc/haproxy/haproxy.cfg</code>, 存在关于log的配置记住local1 notice只要与后面配置的rsysylog一致即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">global</div><div class="line">log /dev/loglocal0</div><div class="line">log /dev/loglocal1 notice</div></pre></td></tr></table></figure></p>
-<p>修改rsyslog配置<code>vim  /etc/rsyslog.d/haproxy.conf</code>内填入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ModLoad imudp</div><div class="line">$UDPServerRun 514</div><div class="line"># 注意这里的local1对应为haproxy.cfg的loacl1</div><div class="line">local1.*     /var/log/haproxy.log</div><div class="line">#如果不加下面的的配置则除了在/var/log/haproxy.log中写入日志外也会写入message文件</div><div class="line">&amp;~</div></pre></td></tr></table></figure></p>
-<p>重启rsyslog和haproxy即可<br><code>sudo systemctl restart rsyslog</code>, <code>sudo systemctl restart haproxy</code></p>
-<h2 id="haproxy针对每个user的限制"><a href="#haproxy针对每个user的限制" class="headerlink" title="haproxy针对每个user的限制"></a>haproxy针对每个user的限制</h2><p>修改haproxy配置<code>vim /etc/haproxy/haproxy.cfg</code></p>
-<p> 原理是基于用户每次流量的字节吞吐量进行统计10s内过期如果超过一定量则将该用户的请求全部转向延时服务器给予响应<br> 该方法也有一个显著的<strong>缺点</strong>即用户开启下载时直至用户下载完成字节吞吐量才会一次性计入统计即下载时完全无限制<strong>直到下载完成时才计入统计</strong><br>   <strong>因此haproxy还是比较适合做用户访问频率限制而流量限制交给squid比较合适</strong><br>   访问频率限制其实也很简单将bytes_out_rate的统计改为http_req_rate统计修改限制参数即可此处不做延伸<br>   详情可参阅<a href="https://cbonte.github.io/haproxy-dconv/1.6/configuration.html#7.3.3-sc_http_req_rate" target="_blank" rel="external">文档</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">31 frontend http_3333</div><div class="line">32   mode http</div><div class="line">33   # 绑定3333端口</div><div class="line">34   bind 0.0.0.0:3333</div><div class="line">35   # 建立一张存储键为用户auth的表 过期时间为30s表容量100k记录用户10s内的访问流量</div><div class="line">36   stick-table type string size 100k expire 30s store bytes_out_rate(10s)</div><div class="line">37   # 最大检测时间为5s超过则返回</div><div class="line">38   tcp-request inspect-delay 5s</div><div class="line">39   # 将流量速率统计以proxy authorization为键存入sc1</div><div class="line">40   tcp-request content track-sc1 hdr(proxy-authorization)</div><div class="line">41   # .css .js .svg .ico 等文件 计入限速流量但不reject 其余请求 每10s限制10kb(10240字节 超过则reject </div><div class="line">42   # tcp-request content reject if !&#123; path_end .css .js .svg .ico &#125; &#123; sc1_bytes_out_rate ge 10240 &#125;</div><div class="line">43   # .css .js .svg .ico 等文件 计入限速流量但不reject 其余请求 每10s限制10kb(10240字节</div><div class="line">44   # 超过速率的请求将使用延时backend进行代理</div><div class="line">45   use_backend delayed if !&#123; path_end .css .js .svg .ico &#125; &#123; sc2_bytes_out_rate ge 10240 &#125;</div><div class="line">46   default_backend squid</div><div class="line">47 </div><div class="line">48 backend delayed</div><div class="line">49   mode http</div><div class="line">50   # 延时2s超过限速时使用延时backend经过该backend的所有请求均延时2s</div><div class="line">51   tcp-request inspect-delay 2s</div><div class="line">52   tcp-request content accept if WAIT_END</div><div class="line">53   server local 127.0.0.1:7228</div></pre></td></tr></table></figure></p>
-<p>另外可以查看存储的键值表内的信息使用命令<code>sudo watch -n 1 &#39;echo &quot;show table http_3333&quot; | socat unix:/run/haproxy/admin.sock -&#39;</code> 即可实时查看http_3333的frontend中存储的表信息进行调试了</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=28531849&auto=1&height=66"></iframe>
 
-<the rest="" of="" contents="" |="" 余下全文="">
-</the>
-      
-    </div>
-    
-  </div>
-  
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/07/Haproxy/">Haproxy</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Never</a></p>
-        <p><span>发布时间:</span>2017-03-07, 09:00:43</p>
-        <p><span>最后更新:</span>2017-03-09, 23:29:16</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/07/Haproxy/" title="Haproxy">http://yoursite.com/2017/03/07/Haproxy/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/03/07/Haproxy/　　作者: Never" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
     </div>
 
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/07/Nginx/">
-                    Nginx  编译安装
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/03/Squid/">
-                    Squid端口限速
-                </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#日志"><span class="toc-number">1.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#haproxy针对每个user的限制"><span class="toc-number">2.</span> <span class="toc-text">haproxy针对每个user的限制</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Haproxy　| Nevermore Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-        <section id="comments">
-    <style> aside.comment-bar { margin: auto 30px; }</style>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function(){
-            this.page.url = 'http://yoursite.com/2017/03/07/Haproxy/';
-            this.page.identifier = '2017/03/07/Haproxy/';
-        };
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = '//null.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        }
-    </script>
-    
-    <script> loadComment(); </script>
-
-</section>
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
     
 
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2017/03/07/Nginx/" title="上一篇: Nginx  编译安装">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2017/03/03/Squid/" title="下一篇: Squid端口限速">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/23/ssh/">ssh配置 以及 GitHub多账户</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/ipython_install/">IPython 安装后打开报错ImportError</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Python_import/">Python 相对导入Bugs</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/NSIS/">NSIS打包C# 程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/gitrelese/">Git Relese自动加载Assets</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/DjangoCache/">Django Cache 缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/DjangoRestFramework/">Django Rest Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/DjangoCelery/">Django Celery</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/Opentsdb/">Opentsdb 部署实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/Nginx/">Nginx  编译安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/Haproxy/">Haproxy</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/Squid/">Squid端口限速</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/virtualenvwrapper/">Virtualenvwrapper</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/learning-review/">Chef learning review</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">

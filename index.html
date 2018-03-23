@@ -201,7 +201,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSIS/">NSIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chef/">chef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haproxy/">haproxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import/">import</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipython/">ipython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tsdb/">tsdb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSIS/">NSIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chef/">chef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haproxy/">haproxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import/">import</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipython/">ipython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tsdb/">tsdb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
                     </div>
                 </section>
                 
@@ -274,11 +274,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ssh" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/03/23/test/" class="article-date">
-      <time datetime="2018-03-23T10:20:30.761Z" itemprop="datePublished">2018-03-23</time>
+      <a href="/2018/03/23/ssh/" class="article-date">
+      <time datetime="2018-03-23T11:23:43.000Z" itemprop="datePublished">2018-03-23</time>
 </a>
 
 
@@ -289,10 +289,24 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/ssh/">ssh配置 以及 GitHub多账户</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+              <p><Excerpt in index | 首页摘要> </p>
+<h1 id="ssh-配置文件"><a href="#ssh-配置文件" class="headerlink" title="ssh 配置文件"></a>ssh 配置文件</h1><h2 id="ssh-开启代理时ssh时常断连问题"><a href="#ssh-开启代理时ssh时常断连问题" class="headerlink" title="ssh 开启代理时ssh时常断连问题"></a>ssh 开启代理时ssh时常断连问题</h2><p>打开配置文件<code>vim ~/.ssh/config</code> 加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Host *</div><div class="line">    ServerAliveInterval 30</div><div class="line">    ServerAliveCountMax 90</div><div class="line">    StrictHostKeyChecking no</div><div class="line">    UserKnownHostsFile /dev/null</div><div class="line">    LogLevel error</div></pre></td></tr></table></figure></p>
+<p>重新打开终端即可生效（或执行<code>source ~/.ssh/config</code>）
+          
       
     </div>
     
@@ -301,6 +315,14 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/03/23/ssh/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -584,10 +606,10 @@
 
 
   
-    <article id="post-DjangoCelery" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-DjangoCache" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/07/DjangoCelery/" class="article-date">
+      <a href="/2017/03/07/DjangoCache/" class="article-date">
       <time datetime="2017-03-07T13:20:43.000Z" itemprop="datePublished">2017-03-07</time>
 </a>
 
@@ -603,7 +625,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/07/DjangoCelery/">Django Celery</a>
+      <a class="article-title" href="/2017/03/07/DjangoCache/">Django Cache 缓存</a>
     </h1>
   
 
@@ -613,8 +635,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p><Excerpt in index | 首页摘要><br>Django Celery, django celery 配置简介</p>
-<h3 id="1-安装celery"><a href="#1-安装celery" class="headerlink" title="1.安装celery"></a>1.安装celery</h3><p>celerys要一个数据库作为后台存储任务和结果,选择Redis作为数据库存储
+              <p><Excerpt in index | 首页摘要><br>Django cache 缓存, 使用memcache来管理缓存系统memcache天生支持集群化cache管理与reids类似的kv键值对存储方法但没有批量匹配删除k的方法<br>Memcached的守护进程daemon 是用C写的但是客户端可以用任何语言来编写并通过 memcached协议与守护进程通信
           
       
     </div>
@@ -630,7 +651,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/03/07/DjangoCelery/#more">阅读全文 >></a>
+          <a href="/2017/03/07/DjangoCache/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -713,10 +734,10 @@
 
 
   
-    <article id="post-DjangoCache" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-DjangoCelery" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/07/DjangoCache/" class="article-date">
+      <a href="/2017/03/07/DjangoCelery/" class="article-date">
       <time datetime="2017-03-07T13:20:43.000Z" itemprop="datePublished">2017-03-07</time>
 </a>
 
@@ -732,7 +753,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/07/DjangoCache/">Django Cache 缓存</a>
+      <a class="article-title" href="/2017/03/07/DjangoCelery/">Django Celery</a>
     </h1>
   
 
@@ -742,7 +763,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p><Excerpt in index | 首页摘要><br>Django cache 缓存, 使用memcache来管理缓存系统memcache天生支持集群化cache管理与reids类似的kv键值对存储方法但没有批量匹配删除k的方法<br>Memcached的守护进程daemon 是用C写的但是客户端可以用任何语言来编写并通过 memcached协议与守护进程通信
+              <p><Excerpt in index | 首页摘要><br>Django Celery, django celery 配置简介</p>
+<h3 id="1-安装celery"><a href="#1-安装celery" class="headerlink" title="1.安装celery"></a>1.安装celery</h3><p>celerys要一个数据库作为后台存储任务和结果,选择Redis作为数据库存储
           
       
     </div>
@@ -758,7 +780,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/03/07/DjangoCache/#more">阅读全文 >></a>
+          <a href="/2017/03/07/DjangoCelery/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
