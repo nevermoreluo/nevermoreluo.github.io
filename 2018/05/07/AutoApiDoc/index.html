@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="chef 管理用户以及限权限 为chef添加admin用户：登录到chef server的主机上执行chef-server-ctl org-user-add ORG USER --admin，该命令也可为已添加的用户提升至admin权限">
-<meta name="keywords" content="chef">
+<meta name="description" content="简介ApiDoc核心思想是由代码中的注释，搭配配置文件以实现api文档页面的自动化生成。">
+<meta name="keywords" content="API， doc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Chef learning review">
-<meta property="og:url" content="http://blog.chenlelun.com/2017/03/03/learning-review/index.html">
+<meta property="og:title" content="ApiDoc 自动生成api doc页面（以Nodejs为例）">
+<meta property="og:url" content="http://blog.chenlelun.com/2018/05/07/AutoApiDoc/index.html">
 <meta property="og:site_name" content="Nevermore Blog">
-<meta property="og:description" content="chef 管理用户以及限权限 为chef添加admin用户：登录到chef server的主机上执行chef-server-ctl org-user-add ORG USER --admin，该命令也可为已添加的用户提升至admin权限">
+<meta property="og:description" content="简介ApiDoc核心思想是由代码中的注释，搭配配置文件以实现api文档页面的自动化生成。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-03-09T15:29:43.000Z">
+<meta property="og:updated_time" content="2018-05-07T07:08:34.003Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chef learning review">
-<meta name="twitter:description" content="chef 管理用户以及限权限 为chef添加admin用户：登录到chef server的主机上执行chef-server-ctl org-user-add ORG USER --admin，该命令也可为已添加的用户提升至admin权限">
+<meta name="twitter:title" content="ApiDoc 自动生成api doc页面（以Nodejs为例）">
+<meta name="twitter:description" content="简介ApiDoc核心思想是由代码中的注释，搭配配置文件以实现api文档页面的自动化生成。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Chef learning review | Nevermore Blog</title>
+<title>ApiDoc 自动生成api doc页面（以Nodejs为例） | Nevermore Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -273,11 +273,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-learning-review" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-AutoApiDoc" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/03/learning-review/" class="article-date">
-      <time datetime="2017-03-03T00:18:44.000Z" itemprop="datePublished">2017-03-03</time>
+      <a href="/2018/05/07/AutoApiDoc/" class="article-date">
+      <time datetime="2018-05-07T06:20:43.000Z" itemprop="datePublished">2018-05-07</time>
 </a>
 
 
@@ -292,7 +292,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Chef learning review
+      ApiDoc 自动生成api doc页面（以Nodejs为例）
     </h1>
   
 
@@ -303,7 +303,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chef/">chef</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API，-doc/">API， doc</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -313,17 +313,36 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>chef 管理用户以及限权限</excerpt></p>
-<p>为chef添加admin用户：<br>登录到chef server的主机上执行<br><code>chef-server-ctl org-user-add ORG USER --admin</code>，该命令也可为已添加的用户提升至admin权限<a id="more"></a></p>
-<p>节点自举：<br><code>knife bootstrap XXX.XX.XX.XXX  -x root -r &#39;role[cnproxy]&#39; -E production -N cnsh02.sha.ap1.elina2.net</code><br>首先确定本机有登录远程机器XXX.XX.XX.XXX的权限，-x 表示以root身份登录， -r 表示预先分配的role， -E代表预先分配的enviment， -N代表节点名。</p>
-<p>knife bootstrap     144.76.233.41  -x root -r ‘role[base]’ -E production -N     elk.infra.elina2.net</p>
-<h2 id="Chef-User限权"><a href="#Chef-User限权" class="headerlink" title="Chef User限权"></a>Chef User限权</h2><p><code>users以及sudo是由chef cookbook管理生成的</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/ruby</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"></span><br><span class="line">include_recipe &apos;users&apos;</span><br><span class="line">include_recipe &apos;sudo&apos;</span><br><span class="line"></span><br><span class="line"># 限权首先建立一个limited-ops用户组</span><br><span class="line">users_manage &quot;limited-ops&quot; do</span><br><span class="line">	# group_id 自取，不与已有gid重复即可</span><br><span class="line">    group_id 2334</span><br><span class="line">    action [ :remove, :create ]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"># 将需要禁止的命令存入Attributes内</span><br><span class="line"># 我这里存在一个base的role内，node[&apos;dangerous_cmds&apos;][&apos;path&apos;]</span><br><span class="line"># 这样方便在chef service上，修改禁止列表</span><br><span class="line"># &quot;dangerous_cmds&quot;: &#123;</span><br><span class="line">#   &quot;mode&quot;: &quot;0744&quot;,</span><br><span class="line">#   &quot;path&quot;: [</span><br><span class="line">#     &quot;/sbin/reboot&quot;,</span><br><span class="line">#     &quot;/sbin/shutdown&quot;,</span><br><span class="line">#     &quot;/sbin/init&quot;,</span><br><span class="line">#     &quot;/sbin/halt&quot;,</span><br><span class="line">#     &quot;/sbin/poweroff&quot;</span><br><span class="line">#   ]</span><br><span class="line"># &#125;</span><br><span class="line"># 修改命令文件的权限，为744,即只有root用户有执行权限</span><br><span class="line">for cmd in node[&apos;dangerous_cmds&apos;][&apos;path&apos;] do</span><br><span class="line">  file cmd do</span><br><span class="line">    mode node[&apos;dangerous_cmds&apos;][&apos;mode&apos;]</span><br><span class="line">  end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"># 禁止limited-ops用户组内的用户以sudo运行以上命令</span><br><span class="line">sudo &apos;limited-ops-sudo&apos; do</span><br><span class="line">    group     &apos;%limited-ops&apos;</span><br><span class="line">    runas     &apos;ALL&apos;</span><br><span class="line">    nopasswd  true</span><br><span class="line">    commands  [&apos;ALL&apos;] + node[&apos;dangerous_cmds&apos;][&apos;path&apos;].map&#123;|cmd| &quot;!&quot; + cmd&#125;</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<p>修改data bags 需要限制权限的用户 将用户组改为limited-ops，<br><code>&quot;groups&quot;: [ &quot;limited-ops&quot; ]</code><br>最后执行chef-client下发配置即可</p>
-<h2 id="Chef-Bugs"><a href="#Chef-Bugs" class="headerlink" title="Chef Bugs"></a>Chef Bugs</h2><h3 id="Service-XXX-cannot-be-found-in-the-resource-collection"><a href="#Service-XXX-cannot-be-found-in-the-resource-collection" class="headerlink" title="Service[XXX] cannot be found in the resource collection"></a>Service[XXX] cannot be found in the resource collection</h3><p>[2017-03-02T20:57:17-05:00] ERROR: resource cookbook_file[/etc/nginx/conf.d/speedtest.conf] is configured to notify resource service[nginx] with action restart, but service[nginx] cannot be found in the resource collection. cookbook_file[/etc/nginx/conf.d/speedtest.conf] is defined in /var/chef/cache/cookbooks/sslproxy/recipes/nginx.rb:10:in `from_file’</p>
-<p>服务未被定义之前无法在其他模块中使用，类似<code>notifies :restart, &#39;service[XXX]&#39;, :delayed</code>的语句将引发此错误。<br>定义服务也很简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service &apos;XXX&apos; do</span><br><span class="line">  action [:enable, :start]</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="http://apidocjs.com/" target="_blank" rel="noopener">ApiDoc</a>核心思想是由代码中的注释，搭配配置文件以实现api文档页面的自动化生成。<a id="more"></a></p>
+<h2 id="适用语言"><a href="#适用语言" class="headerlink" title="适用语言"></a>适用语言</h2><ul>
+<li>Python</li>
+<li>Lua</li>
+<li>Ruby</li>
+<li>Perl</li>
+<li>CoffeeScript</li>
+<li>Erlang</li>
+<li>Elixir</li>
+<li>Java</li>
+<li>JavaScript</li>
+<li>PHP</li>
+<li>C#</li>
+<li>Go</li>
+<li>Dart</li>
+</ul>
+<p>具体写法可以参见<a href="http://apidocjs.com/" target="_blank" rel="noopener">APIDoc官网</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用npm全局安装apidoc，<code>npm install apidoc -g</code></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在项目根目录下，新增apidoc.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"apiDocs"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"apiDoc for server\n\n  Default Data Format: Json"</span>,</span><br><span class="line">  <span class="attr">"title"</span>: <span class="string">"ApiDoc"</span>,</span><br><span class="line">  <span class="attr">"url"</span> : <span class="string">"http://api.example.com"</span>,</span><br><span class="line">  <span class="attr">"order"</span>: [</span><br><span class="line">        <span class="string">"VerifyCaptcha"</span>,</span><br><span class="line">        <span class="string">"ResetPassword"</span>,</span><br><span class="line">        <span class="string">"Login"</span></span><br><span class="line">      ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>description，将展示在主页的开头，描述文档的用途 </li>
+<li>url， 将拼接到所有注释的api上</li>
+<li>order， 文档将按这个顺序排序</li>
+</ul>
+<p>在编写api的代码中加入注释，下面举个栗子<br><figure class="highlight javascript"><figcaption><span>1.8</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @api &#123;post&#125; /api/user/login Login</span></span><br><span class="line"><span class="comment"> * @apiVersion 0.0.1</span></span><br><span class="line"><span class="comment"> * @apiName Login</span></span><br><span class="line"><span class="comment"> * @apiGroup User</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @apiParam &#123;String&#125; email User email.</span></span><br><span class="line"><span class="comment"> * @apiParam &#123;String&#125; password New password At least larger than 8, length should be 8~64</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @apiSuccess &#123;Number&#125; code Http status code</span></span><br><span class="line"><span class="comment"> * @apiSuccess &#123;String&#125; isSuccess response success status</span></span><br><span class="line"><span class="comment"> * @apiSuccess &#123;String&#125; token token for following request</span></span><br><span class="line"><span class="comment"> * @apiSuccess &#123;String&#125; msg response message</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @apiSuccessExample Success-Response:</span></span><br><span class="line"><span class="comment"> *     HTTP/1.1 200 OK</span></span><br><span class="line"><span class="comment"> *     &#123;</span></span><br><span class="line"><span class="comment"> *       "code": 200,</span></span><br><span class="line"><span class="comment"> *       "isSuccess": true,</span></span><br><span class="line"><span class="comment"> *       "token": "MYO&lt;HBM&lt;JGBVBN975491",</span></span><br><span class="line"><span class="comment"> *       "msg": "User Login Success!"</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @apiError CaptchaVerifyError The captcha not match for email.</span></span><br><span class="line"><span class="comment"> * @apiErrorExample Error-Response:</span></span><br><span class="line"><span class="comment"> *     HTTP/1.1 401 Unauthorized</span></span><br><span class="line"><span class="comment"> *     &#123;</span></span><br><span class="line"><span class="comment"> *       "code": 401,</span></span><br><span class="line"><span class="comment"> *       "isSuccess": false,</span></span><br><span class="line"><span class="comment"> *       "msg": "User/Password not match"</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-</the>
+</the></excerpt>
       
     </div>
     
@@ -331,13 +350,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/03/learning-review/">Chef learning review</a></p>
+        <p><span>本文标题:</span><a href="/2018/05/07/AutoApiDoc/">ApiDoc 自动生成api doc页面（以Nodejs为例）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Never</a></p>
-        <p><span>发布时间:</span>2017-03-03, 08:18:44</p>
-        <p><span>最后更新:</span>2017-03-09, 23:29:43</p>
+        <p><span>发布时间:</span>2018-05-07, 14:20:43</p>
+        <p><span>最后更新:</span>2018-05-07, 15:08:34</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/03/learning-review/" title="Chef learning review">http://blog.chenlelun.com/2017/03/03/learning-review/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.chenlelun.com/2017/03/03/learning-review/　　作者: Never" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/05/07/AutoApiDoc/" title="ApiDoc 自动生成api doc页面（以Nodejs为例）">http://blog.chenlelun.com/2018/05/07/AutoApiDoc/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.chenlelun.com/2018/05/07/AutoApiDoc/　　作者: Never" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -349,12 +368,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/03/virtualenvwrapper/">
-                    Virtualenvwrapper
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/05/06/NodeUnitTest/">
+                    Nodejs API 单元测试
                 </a>
             </div>
-        
         
     </nav>
 
@@ -364,7 +383,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chef-User限权"><span class="toc-number">1.</span> <span class="toc-text">Chef User限权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chef-Bugs"><span class="toc-number">2.</span> <span class="toc-text">Chef Bugs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Service-XXX-cannot-be-found-in-the-resource-collection"><span class="toc-number">2.1.</span> <span class="toc-text">Service[XXX] cannot be found in the resource collection</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#适用语言"><span class="toc-number">2.</span> <span class="toc-text">适用语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">4.</span> <span class="toc-text">配置</span></a></li></ol>
         
     </div>
     <style>
@@ -400,7 +419,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Chef learning review　| Nevermore Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"ApiDoc 自动生成api doc页面（以Nodejs为例）　| Nevermore Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -419,8 +438,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://blog.chenlelun.com/2017/03/03/learning-review/';
-            this.page.identifier = '2017/03/03/learning-review/';
+            this.page.url = 'http://blog.chenlelun.com/2018/05/07/AutoApiDoc/';
+            this.page.identifier = '2018/05/07/AutoApiDoc/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -442,15 +461,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/03/virtualenvwrapper/" title="上一篇: Virtualenvwrapper">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/05/06/NodeUnitTest/" title="下一篇: Nodejs API 单元测试">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
