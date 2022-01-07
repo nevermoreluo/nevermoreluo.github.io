@@ -186,7 +186,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSIS/" rel="tag">NSIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lua/" rel="tag">lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSIS/" rel="tag">NSIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lua/" rel="tag">lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
                     </div>
                 </section>
                 
@@ -262,6 +262,104 @@
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-关于Core-dump-核心转储" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/01/07/%E5%85%B3%E4%BA%8ECore-dump-%E6%A0%B8%E5%BF%83%E8%BD%AC%E5%82%A8/" class="article-date">
+      <time datetime="2022-01-07T02:18:54.000Z" itemprop="datePublished">2022-01-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/07/%E5%85%B3%E4%BA%8ECore-dump-%E6%A0%B8%E5%BF%83%E8%BD%AC%E5%82%A8/">关于Core dump(核心转储)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>core dump是程序运行时，在进程收到某些信号而终止运行时，将此时进程地址空间的内容以及有关进程状态的其他信息写入一个磁盘文件。</p>
+<p>对应会产生core dump的信号  </p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Action</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SIGQUIT</td>
+<td>Core</td>
+<td>Quit from keyboard</td>
+</tr>
+<tr>
+<td>SIGILL</td>
+<td>Core</td>
+<td>Illegal Instruction</td>
+</tr>
+<tr>
+<td>SIGABRT</td>
+<td>Core</td>
+<td>Abort signal from abort</td>
+</tr>
+<tr>
+<td>SIGSEGV</td>
+<td>Core</td>
+<td>Invalid memory reference</td>
+</tr>
+<tr>
+<td>SIGTRAP</td>
+<td>Core</td>
+<td>Trace/breakpoint trap</td>
+</tr>
+</tbody></table>
+<p>我们可以通过使用gdb查core dump文件，最后崩溃时的信息，来进行debug<br>为了更好的查看阅读core dump文件, linux下需要进行以下配置
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2022/01/07/%E5%85%B3%E4%BA%8ECore-dump-%E6%A0%B8%E5%BF%83%E8%BD%AC%E5%82%A8/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Lua-源码中-l-likely-l-unlikey-是什么意思" class="article article-type-post" itemscope itemprop="blogPost">
   
