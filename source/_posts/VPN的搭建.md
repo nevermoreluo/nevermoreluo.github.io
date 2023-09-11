@@ -2,7 +2,7 @@
 title: 关于Tinc VPN的搭建
 date: 2022-01-06 19:39:14
 categories:
-  - Code
+  - Tools
 tags: VPN
 
 +description: "Welcome to Hexo! This is your very first post."
