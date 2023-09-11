@@ -1,6 +1,8 @@
 ---
 title: 关于Core dump(核心转储)
 date: 2022-01-07 10:18:54
+categories:
+  - Code
 tags: [linux, c, cpp]
 ---
 

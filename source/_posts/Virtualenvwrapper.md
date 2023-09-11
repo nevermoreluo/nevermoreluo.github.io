@@ -1,6 +1,8 @@
 ---
 title: Virtualenvwrapper
 date: 2022-01-06 19:31:46
+categories:
+  - Code
 tags: python
 ---
 

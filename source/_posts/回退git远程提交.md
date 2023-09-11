@@ -1,6 +1,8 @@
 ---
 title: 回退git远程提交
 date: 2022-01-06 20:40:57
+categories:
+  - Code
 tags: [ git ]
 ---
 

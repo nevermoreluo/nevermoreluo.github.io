@@ -1,6 +1,8 @@
 ---
 title: 'Lua 源码中 l_likely, l_unlikey 是什么意思'
 date: 2022-01-07 10:04:14
+categories:
+  - Code
 tags:  [lua, c]
 ---
 

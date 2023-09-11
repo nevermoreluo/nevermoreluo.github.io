@@ -1,6 +1,8 @@
 ---
 title: Strace
 date: 2022-01-07 11:38:44
+categories:
+  - Code
 tags: [linux, cpp]
 ---
 
