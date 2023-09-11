@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Nevermore Blog</title>
+    <link>https://nevermoreluo.github.io/</link>
+    
+    <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description></description>
+    <pubDate>Mon, 11 Sep 2023 06:04:52 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Linux service register script</title>
+      <link>https://nevermoreluo.github.io/2023/09/11/Linux-service-register-script/</link>
+      <guid>https://nevermoreluo.github.io/2023/09/11/Linux-service-register-script/</guid>
+      <pubDate>Mon, 11 Sep 2023 10:53:39 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;工作中存在一些功能需要注册为服务，保证开机自启以及自动重启业务。其实本质上就是注册一个service unit, 但是很多同学都没搞过。为了减少一些同学的使用成本，就给了个简单脚本按步骤执行。</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/linux/">linux</category>
+      
+      <category domain="https://nevermoreluo.github.io/tags/shell/">shell</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2023/09/11/Linux-service-register-script/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>监听随机端口</title>
+      <link>https://nevermoreluo.github.io/2022/01/12/%E7%9B%91%E5%90%AC%E9%9A%8F%E6%9C%BA%E7%AB%AF%E5%8F%A3/</link>
+      <guid>https://nevermoreluo.github.io/2022/01/12/%E7%9B%91%E5%90%AC%E9%9A%8F%E6%9C%BA%E7%AB%AF%E5%8F%A3/</guid>
+      <pubDate>Wed, 12 Jan 2022 10:37:49 GMT</pubDate>
+      
+      <description>&lt;p&gt;业务上存在需求，一类服务监听随机端口，并由服务发现业务管理内部分配，那么我们如何实现监听随机端口呢？&lt;/p&gt;
+&lt;p&gt;实际上将端口设置为0即可在&lt;code&gt;规定&lt;/code&gt;范围内，分配一个可bind的端口</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/c/">c</category>
+      
+      <category domain="https://nevermoreluo.github.io/tags/cpp/">cpp</category>
+      
+      <category domain="https://nevermoreluo.github.io/tags/socket/">socket</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2022/01/12/%E7%9B%91%E5%90%AC%E9%9A%8F%E6%9C%BA%E7%AB%AF%E5%8F%A3/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>关于游戏同步的二三事</title>
+      <link>https://nevermoreluo.github.io/2022/01/07/%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%90%8C%E6%AD%A5%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/</link>
+      <guid>https://nevermoreluo.github.io/2022/01/07/%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%90%8C%E6%AD%A5%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/</guid>
+      <pubDate>Fri, 07 Jan 2022 12:00:17 GMT</pubDate>
+      
+      <description>&lt;p&gt;&lt;a href=&quot;http://www.skywind.me/blog/archives/112&quot;&gt;网络游戏同步法则&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;定义&lt;br&gt;通常来说的状态同步，即狭义上的状态同步，即在状态发生变化时将变动的数据同步给客户端&lt;br&gt;所谓帧同步其实是指以一帧数据为单位进行同步，但是通常来说我们认为的帧同步是 锁定帧同步（或者变种）&lt;br&gt;那么广义上来说，其实存在既是帧同步又是状态同步，即以帧为单位的状态同步</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/game/">game</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2022/01/07/%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%90%8C%E6%AD%A5%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Strace</title>
+      <link>https://nevermoreluo.github.io/2022/01/07/Strace/</link>
+      <guid>https://nevermoreluo.github.io/2022/01/07/Strace/</guid>
+      <pubDate>Fri, 07 Jan 2022 11:38:44 GMT</pubDate>
+      
+      <description>&lt;p&gt;Strace是Linux环境下用于调试诊断应用程序调用systemcall的工具。&lt;/p&gt;
+&lt;p&gt;由于Strace只检测系统调用，因此Strace只是一个分析的侧面。&lt;br&gt;例如：命令&lt;code&gt;perl -e &amp;#39;while(1)&amp;#123;&amp;#125;&amp;#39;&lt;/code&gt;不会产生任何系统调用&lt;/p&gt;
+&lt;p&gt;系统调用包括以下几个方面file, process, network, signal, ipc, desc， 默认将检测所有系统调用即all</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/linux/">linux</category>
+      
+      <category domain="https://nevermoreluo.github.io/tags/cpp/">cpp</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2022/01/07/Strace/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>关于Core dump(核心转储)</title>
+      <link>https://nevermoreluo.github.io/2022/01/07/%E5%85%B3%E4%BA%8ECore-dump-%E6%A0%B8%E5%BF%83%E8%BD%AC%E5%82%A8/</link>
+      <guid>https://nevermoreluo.github.io/2022/01/07/%E5%85%B3%E4%BA%8ECore-dump-%E6%A0%B8%E5%BF%83%E8%BD%AC%E5%82%A8/</guid>
+      <pubDate>Fri, 07 Jan 2022 10:18:54 GMT</pubDate>
+      
+      <description>&lt;p&gt;core dump是程序运行时，在进程收到某些信号而终止运行时，将此时进程地址空间的内容以及有关进程状态的其他信息写入一个磁盘文件。&lt;/p&gt;
+&lt;p&gt;对应会产生core dump的信号  &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Signal&lt;/th&gt;
+&lt;th&gt;Action&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;SIGQUIT&lt;/td&gt;
+&lt;td&gt;Core&lt;/td&gt;
+&lt;td&gt;Quit from keyboard&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SIGILL&lt;/td&gt;
+&lt;td&gt;Core&lt;/td&gt;
+&lt;td&gt;Illegal Instruction&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SIGABRT&lt;/td&gt;
+&lt;td&gt;Core&lt;/td&gt;
+&lt;td&gt;Abort signal from abort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SIGSEGV&lt;/td&gt;
+&lt;td&gt;Core&lt;/td&gt;
+&lt;td&gt;Invalid memory reference&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SIGTRAP&lt;/td&gt;
+&lt;td&gt;Core&lt;/td&gt;
+&lt;td&gt;Trace/breakpoint trap&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;我们可以通过使用gdb查core dump文件，最后崩溃时的信息，来进行debug&lt;br&gt;为了更好的查看阅读core dump文件, linux下需要进行以下配置</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/linux/">linux</category>
+      
+      <category domain="https://nevermoreluo.github.io/tags/c/">c</category>
+      
+      <category domain="https://nevermoreluo.github.io/tags/cpp/">cpp</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2022/01/07/%E5%85%B3%E4%BA%8ECore-dump-%E6%A0%B8%E5%BF%83%E8%BD%AC%E5%82%A8/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Lua 源码中 l_likely, l_unlikey 是什么意思</title>
+      <link>https://nevermoreluo.github.io/2022/01/07/Lua-%E6%BA%90%E7%A0%81%E4%B8%AD-l-likely-l-unlikey-%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/</link>
+      <guid>https://nevermoreluo.github.io/2022/01/07/Lua-%E6%BA%90%E7%A0%81%E4%B8%AD-l-likely-l-unlikey-%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/</guid>
+      <pubDate>Fri, 07 Jan 2022 10:04:14 GMT</pubDate>
+      
+      <description>&lt;p&gt;最近在排查c++程序内部调用lua_pcall时产生&lt;code&gt;C stack overflow&lt;/code&gt;异常，&lt;br&gt;研究问题时发现lua源码中存在一些likely调用,其实在其他代码中也见到过类似的调用，&lt;br&gt;那么我们今天就来探究一下它到底是什么逻辑</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/lua/">lua</category>
+      
+      <category domain="https://nevermoreluo.github.io/tags/c/">c</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2022/01/07/Lua-%E6%BA%90%E7%A0%81%E4%B8%AD-l-likely-l-unlikey-%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>回退git远程提交</title>
+      <link>https://nevermoreluo.github.io/2022/01/06/%E5%9B%9E%E9%80%80git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4/</link>
+      <guid>https://nevermoreluo.github.io/2022/01/06/%E5%9B%9E%E9%80%80git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4/</guid>
+      <pubDate>Thu, 06 Jan 2022 20:40:57 GMT</pubDate>
+      
+      <description>&lt;p&gt;严格意义上来说，我们并不期待撤销一个已经提交的commit（虽然我们可以）&lt;br&gt;下面给出4种解决方式，各有优缺点</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/git/">git</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2022/01/06/%E5%9B%9E%E9%80%80git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>NSIS打包C# 程序</title>
+      <link>https://nevermoreluo.github.io/2022/01/06/NSIS%E6%89%93%E5%8C%85C-%E7%A8%8B%E5%BA%8F/</link>
+      <guid>https://nevermoreluo.github.io/2022/01/06/NSIS%E6%89%93%E5%8C%85C-%E7%A8%8B%E5%BA%8F/</guid>
+      <pubDate>Thu, 06 Jan 2022 20:13:01 GMT</pubDate>
+      
+      <description>&lt;p&gt;NSIS是一个Nullsoft脚本安装系统（英语：Nullsoft Scriptable Install System，缩写：NSIS）为一个开放源代码脚本驱动的封装安装档用工具。可以用其脚本语言自定安装的流程，同时支持多种语系的安装接口。</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/C/">C#</category>
+      
+      <category domain="https://nevermoreluo.github.io/tags/NSIS/">NSIS</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2022/01/06/NSIS%E6%89%93%E5%8C%85C-%E7%A8%8B%E5%BA%8F/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>关于Tinc VPN的搭建</title>
+      <link>https://nevermoreluo.github.io/2022/01/06/VPN%E7%9A%84%E6%90%AD%E5%BB%BA/</link>
+      <guid>https://nevermoreluo.github.io/2022/01/06/VPN%E7%9A%84%E6%90%AD%E5%BB%BA/</guid>
+      <pubDate>Thu, 06 Jan 2022 19:39:14 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;关于&quot;&gt;&lt;a href=&quot;#关于&quot; class=&quot;headerlink&quot; title=&quot;关于&quot;&gt;&lt;/a&gt;关于&lt;/h2&gt;&lt;p&gt;Tinc 是一种相对小众的VPN方案。但是支持很多环境的安装，例如ubuntu，centos都可以用自带的包管理工具安装。</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/VPN/">VPN</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2022/01/06/VPN%E7%9A%84%E6%90%AD%E5%BB%BA/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Virtualenvwrapper</title>
+      <link>https://nevermoreluo.github.io/2022/01/06/Virtualenvwrapper/</link>
+      <guid>https://nevermoreluo.github.io/2022/01/06/Virtualenvwrapper/</guid>
+      <pubDate>Thu, 06 Jan 2022 19:31:46 GMT</pubDate>
+      
+      <description>&lt;p&gt;通过命令&lt;code&gt;pip install virtualenvwrapper&lt;/code&gt;安装</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/python/">python</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2022/01/06/Virtualenvwrapper/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
