@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>口算二进制相互转换十六进制 以及拓展 - Nevermore Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Nevermore&#039;s LOG"><meta name="msapplication-TileImage" content="/images/blog-svgrepo-com.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Nevermore&#039;s LOG"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Why?hhhhh，没想到吧，我也没想到这东西还需要口算。国内一些考试需要，既然看了就记录下来吧。"><meta property="og:type" content="blog"><meta property="og:title" content="Nevermore&#039;s LOG"><meta property="og:url" content="https://nevermoreluo.github.io/2023/09/13/%E5%8F%A3%E7%AE%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"><meta property="og:site_name" content="Nevermore Blog"><meta property="og:description" content="Why?hhhhh，没想到吧，我也没想到这东西还需要口算。国内一些考试需要，既然看了就记录下来吧。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://nevermoreluo.github.io/img/og_image.png"><meta property="article:published_time" content="2023-09-13T11:09:04.000Z"><meta property="article:modified_time" content="2023-09-13T03:48:33.652Z"><meta property="article:author" content="Nevermore"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://nevermoreluo.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevermoreluo.github.io/2023/09/13/%E5%8F%A3%E7%AE%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"},"headline":"口算二进制相互转换十六进制 以及拓展","image":["https://nevermoreluo.github.io/img/og_image.png"],"datePublished":"2023-09-13T11:09:04.000Z","dateModified":"2023-09-13T03:48:33.652Z","author":{"@type":"Person","name":"Nevermore"},"publisher":{"@type":"Organization","name":"Nevermore Blog","logo":{"@type":"ImageObject","url":"https://nevermoreluo.github.io/images/blog-svgrepo-com.svg"}},"description":"Why?hhhhh，没想到吧，我也没想到这东西还需要口算。国内一些考试需要，既然看了就记录下来吧。"}</script><link rel="canonical" href="https://nevermoreluo.github.io/2023/09/13/%E5%8F%A3%E7%AE%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"><link rel="alternate" href="/atom.xml" title="Nevermore Blog" type="application/atom+xml"><link rel="icon" href="/images/blog-svgrepo-com.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/blog-svgrepo-com.svg" alt="Nevermore Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/nevermoreluo"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-09-13T11:09:04.000Z" title="9/13/2023, 11:09:04 AM">2023-09-13</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-09-13T03:48:33.652Z" title="9/13/2023, 3:48:33 AM">2023-09-13</time></span><span class="level-item">4 minutes read (About 538 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">口算二进制相互转换十六进制 以及拓展</h1><div class="content"><h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><p>hhhhh，没想到吧，我也没想到这东西还需要口算。<br>国内一些考试需要，既然看了就记录下来吧。<span id="more"></span> </p>
+<h2 id="用十六进制实战"><a href="#用十六进制实战" class="headerlink" title="用十六进制实战"></a>用十六进制实战</h2><p>首先咱先来看下，一位十六进制数转换的数值。</p>
+<table>
+<thead>
+<tr>
+<th>十六进制</th>
+<th>二进制</th>
+<th>十进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+<td>5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+<td>7</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1000</td>
+<td>8</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1001</td>
+<td>9</td>
+</tr>
+<tr>
+<td>A</td>
+<td>1010</td>
+<td>10</td>
+</tr>
+<tr>
+<td>B</td>
+<td>1011</td>
+<td>11</td>
+</tr>
+<tr>
+<td>C</td>
+<td>1100</td>
+<td>12</td>
+</tr>
+<tr>
+<td>D</td>
+<td>1101</td>
+<td>13</td>
+</tr>
+<tr>
+<td>E</td>
+<td>1110</td>
+<td>14</td>
+</tr>
+<tr>
+<td>F</td>
+<td>1111</td>
+<td>15</td>
+</tr>
+</tbody></table>
+<p>其实也大可不必全背下来，8以下的我相信大家都记得差不多，<br>咱记住F就是1111，A是1010这两个锚点上下加减就够了。 </p>
+<h3 id="二进制转十六进制"><a href="#二进制转十六进制" class="headerlink" title="二进制转十六进制"></a>二进制转十六进制</h3><p>给出一个二进制数 <code>101110101010110101</code>  </p>
+<ul>
+<li>从右到左，每四位一组将二进制进行分组 <code>10 1110 1010 1011 0101</code></li>
+<li>将每组按十六进制转换  <code>2 e a b 5</code><blockquote>
+<p>即 10 =&gt; 2, 1110 =&gt; e, 1010 =&gt; a, 1011 =&gt; b, 0101 =&gt; 5  </p>
+</blockquote>
+</li>
+<li>最后将每组的转换值合并就可以获得对应进制的值 <code>0x2eab5</code></li>
+</ul>
+<h3 id="十六进制转二进制"><a href="#十六进制转二进制" class="headerlink" title="十六进制转二进制"></a>十六进制转二进制</h3><p>其实是对二进制转十六进制的逆向  </p>
+<ul>
+<li>给出一个十六进制数  <code>0x2eab5</code></li>
+<li>为每位数展开为二进制数，这里需要注意，转为二进制后不足n位的要高位补0 <code>0010 1110 1010 1011 0101</code><blockquote>
+<p>即 2 =&gt; 0010, e =&gt; 1110, a =&gt; 1010, b=&gt; 1011, 5 =&gt; 0101</p>
+</blockquote>
+</li>
+<li>最后将每组的转换值合并就可以获得转换后的二进制数 <code>101110101010110101</code></li>
+</ul>
+<h2 id="其实扩展一下理论我们就可以得到"><a href="#其实扩展一下理论我们就可以得到" class="headerlink" title="其实扩展一下理论我们就可以得到"></a>其实扩展一下理论我们就可以得到</h2><h3 id="二进制转2-n进制"><a href="#二进制转2-n进制" class="headerlink" title="二进制转2^n进制"></a>二进制转2^n进制</h3><p>给出一个二进制数<code>101110101010110101</code>  </p>
+<ul>
+<li>从右到左，每n位一组将二进制分开</li>
+<li>将每组按2^n进制转换  </li>
+<li>最后将每组的转换值合并就可以获得对应进制的值</li>
+</ul>
+<h3 id="2-n进制转二进制"><a href="#2-n进制转二进制" class="headerlink" title="2^n进制转二进制"></a>2^n进制转二进制</h3><p>其实是对二进制转2^n进制的逆向  </p>
+<ul>
+<li>给出一个2^n进制数</li>
+<li>为每位数展开为二进制数，这里需要注意，转为二进制后不足n位的要高位补0</li>
+<li>最后将每组的转换值合并就可以获得转换后的二进制数</li>
+</ul>
+<h2 id="最后咱来看下题目哈"><a href="#最后咱来看下题目哈" class="headerlink" title="最后咱来看下题目哈"></a>最后咱来看下题目哈</h2><blockquote>
+<p>问： 内存按字节编址从A5000H到DCFFFH的区域其存储容量为__KB.</p>
+</blockquote>
+<p>笔算说是。。。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = 0xDCFFFF - 0xA5000 + 1  </span><br><span class="line">  = 0xDD0000 - 0xA5000</span><br><span class="line">  = 0x38000</span><br><span class="line">  = 0x0011 1000 * (2^12) // 后面3个0，转二进制就是 4*3 个 0</span><br><span class="line">  = 7 * (2^5)  * (2^10) // 单位Bytes</span><br><span class="line">  = 7 * 32 // 单位 KB</span><br><span class="line">  = 224KB // 哒哒</span><br></pre></td></tr></table></figure>
+</div><div class="article-licensing box"><div class="licensing-title"><p>口算二进制相互转换十六进制 以及拓展</p><p><a href="https://nevermoreluo.github.io/2023/09/13/口算二进制转换/">https://nevermoreluo.github.io/2023/09/13/口算二进制转换/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Nevermore</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2023-09-13</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-09-13</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/" alt="Alipay"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2023/09/12/Server-certificate-verification-failed/"><span class="level-item">Server certificate verification failed</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/images/avatar.png" alt="Nevermore"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Nevermore</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>ZheJiang</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">13</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/nevermoreluo" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/nevermoreluo"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/C/"><span class="tag">C#</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NSIS/"><span class="tag">NSIS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/VPN/"><span class="tag">VPN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/c/"><span class="tag">c</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/game/"><span class="tag">game</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux/"><span class="tag">linux</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/lua/"><span class="tag">lua</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python/"><span class="tag">python</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shell/"><span class="tag">shell</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/socket/"><span class="tag">socket</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ssl/"><span class="tag">ssl</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/windows/"><span class="tag">windows</span><span class="tag">1</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Code/"><span class="level-start"><span class="level-item">Code</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/categories/Tools/"><span class="level-start"><span class="level-item">Tools</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-13T11:09:04.000Z">2023-09-13</time></p><p class="title"><a href="/2023/09/13/%E5%8F%A3%E7%AE%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">口算二进制相互转换十六进制 以及拓展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-12T08:49:25.000Z">2023-09-12</time></p><p class="title"><a href="/2023/09/12/Server-certificate-verification-failed/">Server certificate verification failed</a></p><p class="categories"><a href="/categories/Code/">Code</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-11T15:58:59.000Z">2023-09-11</time></p><p class="title"><a href="/2023/09/11/RDP%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">RDP内网穿透</a></p><p class="categories"><a href="/categories/Tools/">Tools</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-11T10:53:39.000Z">2023-09-11</time></p><p class="title"><a href="/2023/09/11/Linux-service-register-script/">Linux service register script</a></p><p class="categories"><a href="/categories/Code/">Code</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-12T10:37:49.000Z">2022-01-12</time></p><p class="title"><a href="/2022/01/12/%E7%9B%91%E5%90%AC%E9%9A%8F%E6%9C%BA%E7%AB%AF%E5%8F%A3/">监听随机端口</a></p><p class="categories"><a href="/categories/Code/">Code</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/blog-svgrepo-com.svg" alt="Nevermore Blog" height="28"></a><p class="is-size-7"><span>&copy; 2023 Nevermore</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2023</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/nevermoreluo"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

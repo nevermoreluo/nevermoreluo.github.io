@@ -9,8 +9,25 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 12 Sep 2023 02:23:53 GMT</pubDate>
+    <pubDate>Wed, 13 Sep 2023 03:48:33 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>口算二进制相互转换十六进制 以及拓展</title>
+      <link>https://nevermoreluo.github.io/2023/09/13/%E5%8F%A3%E7%AE%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/</link>
+      <guid>https://nevermoreluo.github.io/2023/09/13/%E5%8F%A3%E7%AE%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/</guid>
+      <pubDate>Wed, 13 Sep 2023 11:09:04 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;Why&quot;&gt;&lt;a href=&quot;#Why&quot; class=&quot;headerlink&quot; title=&quot;Why?&quot;&gt;&lt;/a&gt;Why?&lt;/h2&gt;&lt;p&gt;hhhhh，没想到吧，我也没想到这东西还需要口算。&lt;br&gt;国内一些考试需要，既然看了就记录下来吧。</description>
+      
+      
+      
+      
+      
+      
+      <comments>https://nevermoreluo.github.io/2023/09/13/%E5%8F%A3%E7%AE%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Server certificate verification failed</title>
