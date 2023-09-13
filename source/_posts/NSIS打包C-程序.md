@@ -2,7 +2,7 @@
 title: NSIS打包C# 程序
 date: 2022-01-06 20:13:01
 categories:
-  - Code
+  - Tools
 tags: [C#, NSIS]
 ---
 
