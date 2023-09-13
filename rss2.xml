@@ -9,7 +9,7 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 13 Sep 2023 03:48:33 GMT</pubDate>
+    <pubDate>Wed, 13 Sep 2023 09:37:28 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -23,6 +23,10 @@
       
       
       
+      <category domain="https://nevermoreluo.github.io/categories/Theory/">Theory</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/theory/">theory</category>
       
       
       <comments>https://nevermoreluo.github.io/2023/09/13/%E5%8F%A3%E7%AE%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/#disqus_thread</comments>
@@ -285,7 +289,7 @@
       
       
       
-      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      <category domain="https://nevermoreluo.github.io/categories/Tools/">Tools</category>
       
       
       <category domain="https://nevermoreluo.github.io/tags/C/">C#</category>
