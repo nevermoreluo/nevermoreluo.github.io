@@ -3,11 +3,11 @@ version: 5.1.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 # Path or URL to the website's logo
-logo: 
+logo: /images/blog-svgrepo-com.svg
 # Page metadata configurations
 head:
     # URL or path to the website's icon
-    favicon: 
+    favicon: /images/blog-svgrepo-com.svg
     # Web application manifests configuration
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest:
@@ -118,7 +118,7 @@ navbar:
 # Page footer configurations
 footer:
     # Copyright text
-    copyright: © 2019
+    copyright: © 2023
     # Links to be shown on the right of the footer section
     links:
         Creative Commons:
@@ -237,7 +237,7 @@ widgets:
         # URL or path to the avatar image
         avatar: /images/avatar.png
         # Whether show the rounded avatar image
-        avatar_rounded: false
+        avatar_rounded: ture
         # Email address for the Gravatar
         gravatar: 
         # URL or path for the follow button
@@ -247,12 +247,12 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: https://github.com/nevermoreluo
-            # Facebook:
-            #     icon: fab fa-facebook
-            #     url: https://facebook.com
-            # Twitter:
-            #     icon: fab fa-twitter
-            #     url: https://twitter.com
+            Facebook:
+                icon: fab fa-facebook
+                url: https://facebook.com
+            Twitter:
+                icon: fab fa-twitter
+                url: https://twitter.com
             # Dribbble:
             #     icon: fab fa-dribbble
             #     url: https://dribbble.com
