@@ -9,8 +9,29 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 13 Sep 2023 09:37:28 GMT</pubDate>
+    <pubDate>Thu, 14 Sep 2023 02:58:16 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Intel VTune Profiler 性能分析</title>
+      <link>https://nevermoreluo.github.io/2023/09/14/Intel-VTune-Profiler-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
+      <guid>https://nevermoreluo.github.io/2023/09/14/Intel-VTune-Profiler-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</guid>
+      <pubDate>Thu, 14 Sep 2023 10:53:38 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;Intel-VTune-Profiler&quot;&gt;&lt;a href=&quot;#Intel-VTune-Profiler&quot; class=&quot;headerlink&quot; title=&quot;Intel VTune Profiler&quot;&gt;&lt;/a&gt;Intel VTune Profiler&lt;/h3&gt;&lt;p&gt;Intel VTune Profiler 以下简称Vtune,是intel推出的一款用于应用性能分析的一款软件工具集，是的区别于普通的分析软件，它其实一系列分析工具的集合。支持windows，linux，macos等系统，以及c/c++, Java, go, .Net, python等多种语言。</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Tools/">Tools</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/profile/">profile</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2023/09/14/Intel-VTune-Profiler-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>口算二进制相互转换十六进制 以及拓展</title>
