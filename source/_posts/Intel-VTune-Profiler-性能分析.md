@@ -10,7 +10,7 @@ tags: [profile]
 ### Intel VTune Profiler
 Intel VTune Profiler 以下简称Vtune,是intel推出的一款用于应用性能分析的一款软件工具集，是的区别于普通的分析软件，它其实一系列分析工具的集合。支持windows，linux，macos等系统，以及c/c++, Java, go, .Net, python等多种语言。<!--more--> 
 其内部还有多种分析维度
-![VTune](images/vtune_utils.png)
+![VTune](/images/vtune_utils.png)
 
 #### 安装 
 按照[官方文档](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler-download.html)安装即可   
@@ -33,8 +33,8 @@ Intel VTune Profiler 以下简称Vtune,是intel推出的一款用于应用性能
 
 由于图表会涉及很多业务数据 因此只将外部启动的主程序图表做一个展示，
 
-![image](images/vtune_ex1.png)  
+![image](/images/vtune_ex1.png)  
 外部启动程序其实会根据配置载入不同的动态库实现不同功能因此主要都是系统库dlopen的占用,暂时不准备对这部分做优化，而且此处占用也只会在服务器起来的时候占用一次，因此本次暂时不优化该部分。
 
 我们甚至可以通过双击对应想要查看的函数，获得函数每行语句的cpu时间占比。  
-![image](images/vtune_ex1_code.png)
+![image](/images/vtune_ex1_code.png)
