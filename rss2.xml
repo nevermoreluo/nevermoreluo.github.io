@@ -9,7 +9,7 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 15 Sep 2023 08:54:41 GMT</pubDate>
+    <pubDate>Tue, 19 Sep 2023 02:20:04 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -18,13 +18,8 @@
       <guid>https://nevermoreluo.github.io/2023/09/15/Lua-raise-error-C-stack-overflow/</guid>
       <pubDate>Fri, 15 Sep 2023 16:47:43 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;C-stack-overflow&quot;&gt;&lt;a href=&quot;#C-stack-overflow&quot; class=&quot;headerlink&quot; title=&quot;C stack overflow&quot;&gt;&lt;/a&gt;C stack</description>
-          
-        
+      <description>&lt;h2 id=&quot;C-stack-overflow&quot;&gt;&lt;a href=&quot;#C-stack-overflow&quot; class=&quot;headerlink&quot; title=&quot;C stack overflow&quot;&gt;&lt;/a&gt;C stack overflow&lt;/h2&gt;&lt;p&gt;在cpp中调用lua虚拟机，出现异常。&lt;/p&gt;
+&lt;p&gt;其实本质上是lua层代码调用了超过指定数量 &lt;code&gt;LUAI_MAXCCALLS&lt;/code&gt;（默认200次）的cfunc导致的bug</description>
       
       
       
