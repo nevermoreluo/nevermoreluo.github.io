@@ -10,7 +10,7 @@ tags: [lua, cpp]
 ## C stack overflow
 在cpp中调用lua虚拟机，出现异常。
  
-其实本质上是lua层代码调用了超过指定数量 `LUAI_MAXCCALLS`（默认200次）的cfunc导致的bug  
+其实本质上是lua层代码调用了超过指定数量 `LUAI_MAXCCALLS`（默认200次）的cfunc导致的bug  <!-- more -->
 
  
 ### 1. require死循环
