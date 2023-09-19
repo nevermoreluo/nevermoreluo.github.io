@@ -6,7 +6,7 @@
   <link href="https://nevermoreluo.github.io/atom.xml" rel="self"/>
   
   <link href="https://nevermoreluo.github.io/"/>
-  <updated>2023-09-19T03:11:00.131Z</updated>
+  <updated>2023-09-19T08:54:33.752Z</updated>
   <id>https://nevermoreluo.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://nevermoreluo.github.io/2023/09/15/Lua-raise-error-C-stack-overflow/"/>
     <id>https://nevermoreluo.github.io/2023/09/15/Lua-raise-error-C-stack-overflow/</id>
     <published>2023-09-15T16:47:43.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;C-stack-overflow&quot;&gt;&lt;a href=&quot;#C-stack-overflow&quot; class=&quot;headerlink&quot; title=&quot;C stack overflow&quot;&gt;&lt;/a&gt;C stack overflow&lt;/h2&gt;&lt;p&gt;在cpp中调用lua虚拟机，出现异常。&lt;/p&gt;
@@ -43,7 +43,7 @@
     <link href="https://nevermoreluo.github.io/2023/09/14/Intel-VTune-Profiler-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/"/>
     <id>https://nevermoreluo.github.io/2023/09/14/Intel-VTune-Profiler-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</id>
     <published>2023-09-14T10:53:38.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Intel-VTune-Profiler&quot;&gt;&lt;a href=&quot;#Intel-VTune-Profiler&quot; class=&quot;headerlink&quot; title=&quot;Intel VTune Profiler&quot;&gt;&lt;/a&gt;Intel VTune Profiler&lt;/h3&gt;&lt;p&gt;Intel VTune Profiler 以下简称Vtune,是intel推出的一款用于应用性能分析的一款软件工具集，是的区别于普通的分析软件，它其实一系列分析工具的集合。支持windows，linux，macos等系统，以及c/c++, Java, go, .Net, python等多种语言。</summary>
@@ -62,7 +62,7 @@
     <link href="https://nevermoreluo.github.io/2023/09/13/%E5%8F%A3%E7%AE%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"/>
     <id>https://nevermoreluo.github.io/2023/09/13/%E5%8F%A3%E7%AE%97%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/</id>
     <published>2023-09-13T11:09:04.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Why&quot;&gt;&lt;a href=&quot;#Why&quot; class=&quot;headerlink&quot; title=&quot;Why?&quot;&gt;&lt;/a&gt;Why?&lt;/h2&gt;&lt;p&gt;hhhhh，没想到吧，我也没想到这东西还需要口算。&lt;br&gt;国内一些考试需要，既然看了就记录下来吧。</summary>
@@ -81,7 +81,7 @@
     <link href="https://nevermoreluo.github.io/2023/09/12/Server-certificate-verification-failed/"/>
     <id>https://nevermoreluo.github.io/2023/09/12/Server-certificate-verification-failed/</id>
     <published>2023-09-12T08:49:25.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;p&gt;在自建服务时原本运行好好的无法返回&lt;code&gt;server certificate verification failed&lt;/code&gt;.</summary>
@@ -100,7 +100,7 @@
     <link href="https://nevermoreluo.github.io/2023/09/11/RDP%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
     <id>https://nevermoreluo.github.io/2023/09/11/RDP%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</id>
     <published>2023-09-11T15:58:59.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;p&gt;用于有公网服务器的内网穿透搭建&lt;/p&gt;
@@ -120,7 +120,7 @@
     <link href="https://nevermoreluo.github.io/2023/09/11/Linux-service-register-script/"/>
     <id>https://nevermoreluo.github.io/2023/09/11/Linux-service-register-script/</id>
     <published>2023-09-11T10:53:39.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;工作中存在一些功能需要注册为服务，保证开机自启以及自动重启业务。其实本质上就是注册一个service unit, 但是很多同学都没搞过。为了减少一些同学的使用成本，就给了个简单脚本按步骤执行。</summary>
@@ -141,7 +141,7 @@
     <link href="https://nevermoreluo.github.io/2022/01/12/%E7%9B%91%E5%90%AC%E9%9A%8F%E6%9C%BA%E7%AB%AF%E5%8F%A3/"/>
     <id>https://nevermoreluo.github.io/2022/01/12/%E7%9B%91%E5%90%AC%E9%9A%8F%E6%9C%BA%E7%AB%AF%E5%8F%A3/</id>
     <published>2022-01-12T10:37:49.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;p&gt;业务上存在需求，一类服务监听随机端口，并由服务发现业务管理内部分配，那么我们如何实现监听随机端口呢？&lt;/p&gt;
@@ -165,7 +165,7 @@
     <link href="https://nevermoreluo.github.io/2022/01/07/%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%90%8C%E6%AD%A5%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/"/>
     <id>https://nevermoreluo.github.io/2022/01/07/%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%90%8C%E6%AD%A5%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/</id>
     <published>2022-01-07T12:00:17.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;a href=&quot;http://www.skywind.me/blog/archives/112&quot;&gt;网络游戏同步法则&lt;/a&gt;&lt;/p&gt;
@@ -186,7 +186,7 @@
     <link href="https://nevermoreluo.github.io/2022/01/07/Strace/"/>
     <id>https://nevermoreluo.github.io/2022/01/07/Strace/</id>
     <published>2022-01-07T11:38:44.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;p&gt;Strace是Linux环境下用于调试诊断应用程序调用systemcall的工具。&lt;/p&gt;
@@ -209,7 +209,7 @@
     <link href="https://nevermoreluo.github.io/2022/01/07/%E5%85%B3%E4%BA%8ECore-dump-%E6%A0%B8%E5%BF%83%E8%BD%AC%E5%82%A8/"/>
     <id>https://nevermoreluo.github.io/2022/01/07/%E5%85%B3%E4%BA%8ECore-dump-%E6%A0%B8%E5%BF%83%E8%BD%AC%E5%82%A8/</id>
     <published>2022-01-07T10:18:54.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;p&gt;core dump是程序运行时，在进程收到某些信号而终止运行时，将此时进程地址空间的内容以及有关进程状态的其他信息写入一个磁盘文件。&lt;/p&gt;
@@ -268,7 +268,7 @@
     <link href="https://nevermoreluo.github.io/2022/01/07/Lua-%E6%BA%90%E7%A0%81%E4%B8%AD-l-likely-l-unlikey-%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/"/>
     <id>https://nevermoreluo.github.io/2022/01/07/Lua-%E6%BA%90%E7%A0%81%E4%B8%AD-l-likely-l-unlikey-%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/</id>
     <published>2022-01-07T10:04:14.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近在排查c++程序内部调用lua_pcall时产生&lt;code&gt;C stack overflow&lt;/code&gt;异常，&lt;br&gt;研究问题时发现lua源码中存在一些likely调用,其实在其他代码中也见到过类似的调用，&lt;br&gt;那么我们今天就来探究一下它到底是什么逻辑</summary>
@@ -289,7 +289,7 @@
     <link href="https://nevermoreluo.github.io/2022/01/06/%E5%9B%9E%E9%80%80git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4/"/>
     <id>https://nevermoreluo.github.io/2022/01/06/%E5%9B%9E%E9%80%80git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4/</id>
     <published>2022-01-06T20:40:57.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;p&gt;严格意义上来说，我们并不期待撤销一个已经提交的commit（虽然我们可以）&lt;br&gt;下面给出4种解决方式，各有优缺点</summary>
@@ -308,7 +308,7 @@
     <link href="https://nevermoreluo.github.io/2022/01/06/NSIS%E6%89%93%E5%8C%85C-%E7%A8%8B%E5%BA%8F/"/>
     <id>https://nevermoreluo.github.io/2022/01/06/NSIS%E6%89%93%E5%8C%85C-%E7%A8%8B%E5%BA%8F/</id>
     <published>2022-01-06T20:13:01.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;p&gt;NSIS是一个Nullsoft脚本安装系统（英语：Nullsoft Scriptable Install System，缩写：NSIS）为一个开放源代码脚本驱动的封装安装档用工具。可以用其脚本语言自定安装的流程，同时支持多种语系的安装接口。</summary>
@@ -329,7 +329,7 @@
     <link href="https://nevermoreluo.github.io/2022/01/06/VPN%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
     <id>https://nevermoreluo.github.io/2022/01/06/VPN%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
     <published>2022-01-06T19:39:14.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;关于&quot;&gt;&lt;a href=&quot;#关于&quot; class=&quot;headerlink&quot; title=&quot;关于&quot;&gt;&lt;/a&gt;关于&lt;/h2&gt;&lt;p&gt;Tinc 是一种相对小众的VPN方案。但是支持很多环境的安装，例如ubuntu，centos都可以用自带的包管理工具安装。</summary>
@@ -348,7 +348,7 @@
     <link href="https://nevermoreluo.github.io/2022/01/06/Virtualenvwrapper/"/>
     <id>https://nevermoreluo.github.io/2022/01/06/Virtualenvwrapper/</id>
     <published>2022-01-06T19:31:46.000Z</published>
-    <updated>2023-09-19T03:11:00.131Z</updated>
+    <updated>2023-09-19T08:54:33.752Z</updated>
     
     
     <summary type="html">&lt;p&gt;通过命令&lt;code&gt;pip install virtualenvwrapper&lt;/code&gt;安装</summary>
