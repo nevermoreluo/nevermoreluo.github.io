@@ -9,8 +9,29 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 19 Sep 2023 08:54:33 GMT</pubDate>
+    <pubDate>Sun, 08 Oct 2023 07:26:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>常用服务端口占用</title>
+      <link>https://nevermoreluo.github.io/2023/10/08/%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/</link>
+      <guid>https://nevermoreluo.github.io/2023/10/08/%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/</guid>
+      <pubDate>Sun, 08 Oct 2023 14:57:58 GMT</pubDate>
+      
+      <description>&lt;p&gt;我们常常会遇到在bind端口时返回，Address already in use。&lt;br&gt;有时候机器可能之前运行了一些服务，当然我们可以通过各种netstat，lsof获得端口被谁占用了。</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/network/">network</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2023/10/08/%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Lua raise error: C stack overflow</title>
