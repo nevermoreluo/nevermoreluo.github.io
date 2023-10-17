@@ -9,8 +9,29 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 08 Oct 2023 07:26:17 GMT</pubDate>
+    <pubDate>Tue, 17 Oct 2023 09:19:14 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Mysql主从同步配置</title>
+      <link>https://nevermoreluo.github.io/2023/10/17/Mysql%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE/</link>
+      <guid>https://nevermoreluo.github.io/2023/10/17/Mysql%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE/</guid>
+      <pubDate>Tue, 17 Oct 2023 16:29:28 GMT</pubDate>
+      
+      <description>&lt;p&gt;对于环境隔离，读写分离的情况，有些情况下我们需要用到mysql的主从同步。以下介绍如何使用docker创建一个主从同步的数据库服务</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Tools/">Tools</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/database/">database</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2023/10/17/Mysql%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>常用服务端口占用</title>
