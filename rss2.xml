@@ -9,8 +9,42 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 17 Oct 2023 09:24:18 GMT</pubDate>
+    <pubDate>Thu, 16 Nov 2023 06:06:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>hexo添加音乐播放</title>
+      <link>https://nevermoreluo.github.io/2023/11/16/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE/</link>
+      <guid>https://nevermoreluo.github.io/2023/11/16/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE/</guid>
+      <pubDate>Thu, 16 Nov 2023 13:39:24 GMT</pubDate>
+      
+      <description>&lt;div id=&quot;aplayer-mQWIWVsF&quot; class=&quot;aplayer aplayer-tag-marker&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;
+			  &lt;script&gt;
+				  var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:true,&quot;showlrc&quot;:3,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;auto&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;width&quot;:&quot;50%&quot;,&quot;music&quot;:[{&quot;title&quot;:&quot;Something Just Like This&quot;,&quot;author&quot;:&quot;Coldplay&quot;,&quot;url&quot;:&quot;/music/SomethingJustLikeThis.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/SomethingJustLikeThis-Coldplay.lrc&quot;},{&quot;title&quot;:&quot;发如雪&quot;,&quot;author&quot;:&quot;周杰伦&quot;,&quot;url&quot;:&quot;/music/发如雪.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/发如雪-周杰伦.lrc&quot;},{&quot;title&quot;:&quot;Viva La Vida&quot;,&quot;author&quot;:&quot;Coldplay&quot;,&quot;url&quot;:&quot;/music/VivaLaVida.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/VivaLaVida-Coldplay.lrc&quot;},{&quot;title&quot;:&quot;我记得&quot;,&quot;author&quot;:&quot;赵雷&quot;,&quot;url&quot;:&quot;/music/我记得.mp3&quot;,&quot;pic&quot;:&quot;/music/我记得.jpg&quot;,&quot;lrc&quot;:&quot;/music/我记得-赵雷.lrc&quot;},{&quot;title&quot;:&quot;晚婚&quot;,&quot;author&quot;:&quot;江蕙&quot;,&quot;url&quot;:&quot;/music/晚婚.mp3&quot;,&quot;pic&quot;:&quot;/music/晚婚.jpg&quot;,&quot;lrc&quot;:&quot;/music/晚婚-江蕙.lrc&quot;}]};
+				  options.element = document.getElementById(&quot;aplayer-mQWIWVsF&quot;);
+				  var ap = new APlayer(options);
+			    window.aplayers || (window.aplayers = []);
+				  window.aplayers.push(ap);
+			  &lt;/script&gt;
+
+
+&lt;p&gt;安装&lt;a href=&quot;https://github.com/MoePlayer/hexo-tag-aplayer&quot;&gt;hexo-tag-aplayer&lt;/a&gt; &lt;code&gt;npm i hexo-tag-aplayer&lt;/code&gt;,在 &lt;code&gt;source/music&lt;/code&gt; 目录中添加下载的歌曲，歌词，封面。这里给一个免费的&lt;a href=&quot;https://slider.kz/&quot;&gt;音乐下载网站&lt;/a&gt;,在文章中写入如下内容即可:  &lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;下面给出一个播放列表的示例。</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Tools/">Tools</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/blog/">blog</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2023/11/16/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Mysql主从同步配置</title>
