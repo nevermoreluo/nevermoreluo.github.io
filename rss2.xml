@@ -9,7 +9,7 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 16 Nov 2023 06:06:18 GMT</pubDate>
+    <pubDate>Wed, 21 Feb 2024 02:40:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -18,10 +18,10 @@
       <guid>https://nevermoreluo.github.io/2023/11/16/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE/</guid>
       <pubDate>Thu, 16 Nov 2023 13:39:24 GMT</pubDate>
       
-      <description>&lt;div id=&quot;aplayer-mQWIWVsF&quot; class=&quot;aplayer aplayer-tag-marker&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;
+      <description>&lt;div id=&quot;aplayer-ERFDshqx&quot; class=&quot;aplayer aplayer-tag-marker&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;
 			  &lt;script&gt;
 				  var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:true,&quot;showlrc&quot;:3,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;auto&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;width&quot;:&quot;50%&quot;,&quot;music&quot;:[{&quot;title&quot;:&quot;Something Just Like This&quot;,&quot;author&quot;:&quot;Coldplay&quot;,&quot;url&quot;:&quot;/music/SomethingJustLikeThis.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/SomethingJustLikeThis-Coldplay.lrc&quot;},{&quot;title&quot;:&quot;发如雪&quot;,&quot;author&quot;:&quot;周杰伦&quot;,&quot;url&quot;:&quot;/music/发如雪.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/发如雪-周杰伦.lrc&quot;},{&quot;title&quot;:&quot;Viva La Vida&quot;,&quot;author&quot;:&quot;Coldplay&quot;,&quot;url&quot;:&quot;/music/VivaLaVida.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/VivaLaVida-Coldplay.lrc&quot;},{&quot;title&quot;:&quot;我记得&quot;,&quot;author&quot;:&quot;赵雷&quot;,&quot;url&quot;:&quot;/music/我记得.mp3&quot;,&quot;pic&quot;:&quot;/music/我记得.jpg&quot;,&quot;lrc&quot;:&quot;/music/我记得-赵雷.lrc&quot;},{&quot;title&quot;:&quot;晚婚&quot;,&quot;author&quot;:&quot;江蕙&quot;,&quot;url&quot;:&quot;/music/晚婚.mp3&quot;,&quot;pic&quot;:&quot;/music/晚婚.jpg&quot;,&quot;lrc&quot;:&quot;/music/晚婚-江蕙.lrc&quot;}]};
-				  options.element = document.getElementById(&quot;aplayer-mQWIWVsF&quot;);
+				  options.element = document.getElementById(&quot;aplayer-ERFDshqx&quot;);
 				  var ap = new APlayer(options);
 			    window.aplayers || (window.aplayers = []);
 				  window.aplayers.push(ap);
@@ -375,6 +375,27 @@
       
       
       <comments>https://nevermoreluo.github.io/2022/01/07/Lua-%E6%BA%90%E7%A0%81%E4%B8%AD-l-likely-l-unlikey-%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>关于Git</title>
+      <link>https://nevermoreluo.github.io/2022/01/06/%E5%85%B3%E4%BA%8EGit/</link>
+      <guid>https://nevermoreluo.github.io/2022/01/06/%E5%85%B3%E4%BA%8EGit/</guid>
+      <pubDate>Thu, 06 Jan 2022 20:40:57 GMT</pubDate>
+      
+      <description>&lt;p&gt;Git命令解释，假设你是&amp;lt;&amp;lt;异世界好哥哥历险记&amp;gt;&amp;gt;的编剧，咱们组使用阿里云盘对剧本压缩包保存方便随时随地可以在任意地方写作</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/git/">git</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2022/01/06/%E5%85%B3%E4%BA%8EGit/#disqus_thread</comments>
       
     </item>
     
