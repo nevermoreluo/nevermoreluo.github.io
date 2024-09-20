@@ -54,3 +54,4 @@ rpm -ivh kernel-lt-headers-5.4.203-1.el7.elrepo.x86_64.rpm
 Linux localhost.localdomain 5.4.203-1.el7.elrepo.x86_64 #1 SMP Fri Jul 1 09:00:33 EDT 2022 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
+
