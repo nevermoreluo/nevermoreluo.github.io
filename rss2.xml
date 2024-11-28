@@ -9,8 +9,33 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 28 Nov 2024 06:30:57 GMT</pubDate>
+    <pubDate>Thu, 28 Nov 2024 07:17:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>个人vps获取免费的https证书的几个方法</title>
+      <link>https://nevermoreluo.github.io/2024/11/28/vps%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%85%8D%E8%B4%B9%E7%9A%84https%E8%AF%81%E4%B9%A6/</link>
+      <guid>https://nevermoreluo.github.io/2024/11/28/vps%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%85%8D%E8%B4%B9%E7%9A%84https%E8%AF%81%E4%B9%A6/</guid>
+      <pubDate>Thu, 28 Nov 2024 06:36:41 GMT</pubDate>
+      
+      <description>&lt;p&gt;首先，如果你连域名都没有，也别跑，方法2可以借用一些赛博菩萨让你照样拥有一个https域名。&lt;br&gt;简单归类一下几个免费获取途径&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;最简单最方便的就是&lt;a href=&quot;https://letsencrypt.org/&quot;&gt;let’s encrypt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;通过&lt;a href=&quot;https://traefik.me/&quot;&gt;traefik.me&lt;/a&gt; 获得自己ip的域名，并且支持https&lt;/li&gt;
+&lt;li&gt;通过赛博菩萨&lt;a href=&quot;https://cloudflare.com/&quot;&gt;cloudflare&lt;/a&gt; pages添加反代（注意流量少免费，但是自己的业务一般不会超&lt;br&gt;下面来详细记录下各自都该如何处理吧</description>
+      
+      
+      
+      
+      <category domain="https://nevermoreluo.github.io/categories/Tools/">Tools</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/linux/">linux</category>
+      
+      
+      <comments>https://nevermoreluo.github.io/2024/11/28/vps%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%85%8D%E8%B4%B9%E7%9A%84https%E8%AF%81%E4%B9%A6/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Centos7升级内核</title>
@@ -39,10 +64,10 @@
       <guid>https://nevermoreluo.github.io/2023/11/16/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE/</guid>
       <pubDate>Thu, 16 Nov 2023 05:39:24 GMT</pubDate>
       
-      <description>&lt;div id=&quot;aplayer-lYYXBVWc&quot; class=&quot;aplayer aplayer-tag-marker&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;
+      <description>&lt;div id=&quot;aplayer-AvavRlJw&quot; class=&quot;aplayer aplayer-tag-marker&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;
 			  &lt;script&gt;
 				  var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:true,&quot;showlrc&quot;:3,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;auto&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;width&quot;:&quot;50%&quot;,&quot;music&quot;:[{&quot;title&quot;:&quot;Something Just Like This&quot;,&quot;author&quot;:&quot;Coldplay&quot;,&quot;url&quot;:&quot;/music/SomethingJustLikeThis.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/SomethingJustLikeThis-Coldplay.lrc&quot;},{&quot;title&quot;:&quot;发如雪&quot;,&quot;author&quot;:&quot;周杰伦&quot;,&quot;url&quot;:&quot;/music/发如雪.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/发如雪-周杰伦.lrc&quot;},{&quot;title&quot;:&quot;Viva La Vida&quot;,&quot;author&quot;:&quot;Coldplay&quot;,&quot;url&quot;:&quot;/music/VivaLaVida.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/VivaLaVida-Coldplay.lrc&quot;},{&quot;title&quot;:&quot;我记得&quot;,&quot;author&quot;:&quot;赵雷&quot;,&quot;url&quot;:&quot;/music/我记得.mp3&quot;,&quot;pic&quot;:&quot;/music/我记得.jpg&quot;,&quot;lrc&quot;:&quot;/music/我记得-赵雷.lrc&quot;},{&quot;title&quot;:&quot;晚婚&quot;,&quot;author&quot;:&quot;江蕙&quot;,&quot;url&quot;:&quot;/music/晚婚.mp3&quot;,&quot;pic&quot;:&quot;/music/晚婚.jpg&quot;,&quot;lrc&quot;:&quot;/music/晚婚-江蕙.lrc&quot;}]};
-				  options.element = document.getElementById(&quot;aplayer-lYYXBVWc&quot;);
+				  options.element = document.getElementById(&quot;aplayer-AvavRlJw&quot;);
 				  var ap = new APlayer(options);
 			    window.aplayers || (window.aplayers = []);
 				  window.aplayers.push(ap);
@@ -482,27 +507,6 @@
       
       
       <comments>https://nevermoreluo.github.io/2022/01/06/VPN%E7%9A%84%E6%90%AD%E5%BB%BA/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Virtualenvwrapper</title>
-      <link>https://nevermoreluo.github.io/2022/01/06/Virtualenvwrapper/</link>
-      <guid>https://nevermoreluo.github.io/2022/01/06/Virtualenvwrapper/</guid>
-      <pubDate>Thu, 06 Jan 2022 11:31:46 GMT</pubDate>
-      
-      <description>&lt;p&gt;通过命令&lt;code&gt;pip install virtualenvwrapper&lt;/code&gt;安装</description>
-      
-      
-      
-      
-      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
-      
-      
-      <category domain="https://nevermoreluo.github.io/tags/python/">python</category>
-      
-      
-      <comments>https://nevermoreluo.github.io/2022/01/06/Virtualenvwrapper/#disqus_thread</comments>
       
     </item>
     
