@@ -27,7 +27,7 @@ jobs:
           ${{ runner.os }}-node-
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
-      run: npm install && npm ci && chmod -R 777 .
+      run: npm install && npm ci && chmod -R 777 /usr/local/lib/node_modules
     
     # Deploy hexo blog website.
     - name: Deploy
