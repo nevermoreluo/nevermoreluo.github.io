@@ -7,7 +7,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node-version: [14.x]
     name: A job to deploy blog.
     steps:
     - name: Checkout
@@ -25,20 +28,27 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Install Dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: npm install && npm ci && chmod -R 777 /usr/local/lib/node_modules
-    
-    # Deploy hexo blog website.
-    - name: Deploy
-      id: deploy
-      uses: sma11black/hexo-action@v1.0.4
-      with:
-        deploy_key: ${{ secrets.DEPLOY_KEY }}
-        user_name: ${{ github.actor }}  # (or delete this input setting to use bot account)
-        user_email: nevermoreluo@gmail.com  # (or delete this input setting to use bot account)
-        commit_msg: ${{ github.event.head_commit.message }}  # (or delete this input setting to use hexo default settings)
-    # Use the output from the `deploy` step(use for test action)
-    - name: Get the output
+    - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+    - name: Configuration environment
+      env:
+        HEXO_DEPLOY_PRI: ${{secrets.DEPLOY_KEY}}
       run: |
-        echo "${{ steps.deploy.outputs.notify }}"
+        sudo timedatectl set-timezone "Asia/Shanghai"
+        mkdir -p ~/.ssh/
+        echo "$HEXO_DEPLOY_PRI" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git config --global user.name "${{ github.actor }}"
+        git config --global user.email "nevermoreluo@gmail.com"
+    - name: Install dependencies
+      run: |
+        npm i -g hexo-cli
+        npm ci
+    - name: Deploy hexo
+      run: |
+        hexo clean
+        hexo d -g -m "${{ github.event.head_commit.message }}"
+
