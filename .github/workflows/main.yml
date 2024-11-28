@@ -46,7 +46,13 @@ jobs:
     - name: Install dependencies
       run: |
         npm i -g hexo-cli
-        npm ci
+        if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+        elif [ -e package-lock.json ]; then
+          npm ci
+        else
+          npm i
+        fi
     - name: Deploy hexo
       run: |
         hexo clean
