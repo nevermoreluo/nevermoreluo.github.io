@@ -53,8 +53,9 @@ jobs:
         else
           npm i
         fi
+        npm install hexo-deployer-git --save
     - name: Deploy hexo
       run: |
-        hexo clean
+        NODE_PATH=$NODE_PATH:$(pwd)/node_modules node sync_deploy_history.js
         hexo d -g -m "${{ github.event.head_commit.message }}"
 
