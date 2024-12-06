@@ -115,6 +115,9 @@ navbar:
         Download on GitHub:
             icon: fab fa-github
             url: https://github.com/nevermoreluo
+        Blog Status:
+            icon: fa fa-tasks
+            url: https://uptimeflare-eaw.pages.dev
 # Page footer configurations
 footer:
     # Copyright text
