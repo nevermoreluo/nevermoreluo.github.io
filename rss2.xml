@@ -9,7 +9,7 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 06 Dec 2024 03:06:41 GMT</pubDate>
+    <pubDate>Fri, 06 Dec 2024 03:46:05 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -64,10 +64,10 @@
       <guid>https://nevermoreluo.github.io/2023/11/16/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE/</guid>
       <pubDate>Thu, 16 Nov 2023 05:39:24 GMT</pubDate>
       
-      <description>&lt;div id=&quot;aplayer-HINtbTec&quot; class=&quot;aplayer aplayer-tag-marker&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;
+      <description>&lt;div id=&quot;aplayer-NnhfiQdo&quot; class=&quot;aplayer aplayer-tag-marker&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;
 			  &lt;script&gt;
 				  var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:true,&quot;showlrc&quot;:3,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;auto&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;width&quot;:&quot;50%&quot;,&quot;music&quot;:[{&quot;title&quot;:&quot;Something Just Like This&quot;,&quot;author&quot;:&quot;Coldplay&quot;,&quot;url&quot;:&quot;/music/SomethingJustLikeThis.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/SomethingJustLikeThis-Coldplay.lrc&quot;},{&quot;title&quot;:&quot;发如雪&quot;,&quot;author&quot;:&quot;周杰伦&quot;,&quot;url&quot;:&quot;/music/发如雪.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/发如雪-周杰伦.lrc&quot;},{&quot;title&quot;:&quot;Viva La Vida&quot;,&quot;author&quot;:&quot;Coldplay&quot;,&quot;url&quot;:&quot;/music/VivaLaVida.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/VivaLaVida-Coldplay.lrc&quot;},{&quot;title&quot;:&quot;我记得&quot;,&quot;author&quot;:&quot;赵雷&quot;,&quot;url&quot;:&quot;/music/我记得.mp3&quot;,&quot;pic&quot;:&quot;/music/我记得.jpg&quot;,&quot;lrc&quot;:&quot;/music/我记得-赵雷.lrc&quot;},{&quot;title&quot;:&quot;晚婚&quot;,&quot;author&quot;:&quot;江蕙&quot;,&quot;url&quot;:&quot;/music/晚婚.mp3&quot;,&quot;pic&quot;:&quot;/music/晚婚.jpg&quot;,&quot;lrc&quot;:&quot;/music/晚婚-江蕙.lrc&quot;}]};
-				  options.element = document.getElementById(&quot;aplayer-HINtbTec&quot;);
+				  options.element = document.getElementById(&quot;aplayer-NnhfiQdo&quot;);
 				  var ap = new APlayer(options);
 			    window.aplayers || (window.aplayers = []);
 				  window.aplayers.push(ap);
