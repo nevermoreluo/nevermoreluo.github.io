@@ -117,7 +117,7 @@ navbar:
             url: https://github.com/nevermoreluo
         Blog Status:
             icon: fa fa-tasks
-            url: https://uptimeflare-eaw.pages.dev
+            url: https://status.chenlelun.eu.org
 # Page footer configurations
 footer:
     # Copyright text
