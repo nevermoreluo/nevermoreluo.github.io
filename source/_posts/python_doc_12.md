@@ -1,4 +1,15 @@
-# Python 3.12.9官方文档 教程部分学习要求
+---
+title: Python 3.12.9官方文档 教程部分学习要求
+date: 2025-03-24 20:13:01
+categories:
+  - Code
+tags: [python]
+---
+
+程序世界有很多语言，每个语言其实本质都是一样的，为了实现计算机能理解的编码，我们第一步不要理解太深刻的计算机工程术语，初步实现一个简单的工程来实验自己是否真的喜欢这件事情。  
+我们选择学习python这门语言，但是本身python有好几个版本之间有很大的不同，本着学新不学旧的原则，我们直接使用最新的python3（以下使用py3简称）<!-- more --> 
+
+
 
 选修 < <span style="color: rgb(0, 213, 255)">**扩展**</span> < <span style="color: #008000">**基础**</span> < <span style="color: #FFFF00">**需要掌握**</span> < <span style="color: #FFA500">**重要**</span> <<span style="color: #FF0000">**必须掌握**</span>
 
