@@ -9,26 +9,24 @@
     <atom:link href="https://nevermoreluo.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 24 Mar 2025 12:36:37 GMT</pubDate>
+    <pubDate>Mon, 24 Mar 2025 12:48:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title></title>
+      <title>Python 3.12.9官方文档 教程部分学习要求</title>
       <link>https://nevermoreluo.github.io/2025/03/24/python_doc_12/</link>
       <guid>https://nevermoreluo.github.io/2025/03/24/python_doc_12/</guid>
-      <pubDate>Mon, 24 Mar 2025 12:36:37 GMT</pubDate>
+      <pubDate>Mon, 24 Mar 2025 12:13:01 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</description>
-          
-        
+      <description>&lt;p&gt;程序世界有很多语言，每个语言其实本质都是一样的，为了实现计算机能理解的编码，我们第一步不要理解太深刻的计算机工程术语，初步实现一个简单的工程来实验自己是否真的喜欢这件事情。&lt;br&gt;我们选择学习python这门语言，但是本身python有好几个版本之间有很大的不同，本着学新不学旧的原则，我们直接使用最新的python3（以下使用py3简称）</description>
       
       
       
       
+      <category domain="https://nevermoreluo.github.io/categories/Code/">Code</category>
+      
+      
+      <category domain="https://nevermoreluo.github.io/tags/python/">python</category>
       
       
       <comments>https://nevermoreluo.github.io/2025/03/24/python_doc_12/#disqus_thread</comments>
@@ -87,10 +85,10 @@
       <guid>https://nevermoreluo.github.io/2023/11/16/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE/</guid>
       <pubDate>Thu, 16 Nov 2023 05:39:24 GMT</pubDate>
       
-      <description>&lt;div id=&quot;aplayer-MzLaesvd&quot; class=&quot;aplayer aplayer-tag-marker&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;
+      <description>&lt;div id=&quot;aplayer-BOYiRJaE&quot; class=&quot;aplayer aplayer-tag-marker&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;
 			  &lt;script&gt;
 				  var options = {&quot;narrow&quot;:false,&quot;autoplay&quot;:true,&quot;showlrc&quot;:3,&quot;mode&quot;:&quot;random&quot;,&quot;mutex&quot;:true,&quot;theme&quot;:&quot;#e6d0b2&quot;,&quot;preload&quot;:&quot;auto&quot;,&quot;listmaxheight&quot;:&quot;513px&quot;,&quot;width&quot;:&quot;50%&quot;,&quot;music&quot;:[{&quot;title&quot;:&quot;Something Just Like This&quot;,&quot;author&quot;:&quot;Coldplay&quot;,&quot;url&quot;:&quot;/music/SomethingJustLikeThis.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/SomethingJustLikeThis-Coldplay.lrc&quot;},{&quot;title&quot;:&quot;发如雪&quot;,&quot;author&quot;:&quot;周杰伦&quot;,&quot;url&quot;:&quot;/music/发如雪.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/发如雪-周杰伦.lrc&quot;},{&quot;title&quot;:&quot;Viva La Vida&quot;,&quot;author&quot;:&quot;Coldplay&quot;,&quot;url&quot;:&quot;/music/VivaLaVida.mp3&quot;,&quot;pic&quot;:&quot;/music/Coldplay.jpg&quot;,&quot;lrc&quot;:&quot;/music/VivaLaVida-Coldplay.lrc&quot;},{&quot;title&quot;:&quot;我记得&quot;,&quot;author&quot;:&quot;赵雷&quot;,&quot;url&quot;:&quot;/music/我记得.mp3&quot;,&quot;pic&quot;:&quot;/music/我记得.jpg&quot;,&quot;lrc&quot;:&quot;/music/我记得-赵雷.lrc&quot;},{&quot;title&quot;:&quot;晚婚&quot;,&quot;author&quot;:&quot;江蕙&quot;,&quot;url&quot;:&quot;/music/晚婚.mp3&quot;,&quot;pic&quot;:&quot;/music/晚婚.jpg&quot;,&quot;lrc&quot;:&quot;/music/晚婚-江蕙.lrc&quot;}]};
-				  options.element = document.getElementById(&quot;aplayer-MzLaesvd&quot;);
+				  options.element = document.getElementById(&quot;aplayer-BOYiRJaE&quot;);
 				  var ap = new APlayer(options);
 			    window.aplayers || (window.aplayers = []);
 				  window.aplayers.push(ap);
